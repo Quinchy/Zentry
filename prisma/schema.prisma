@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int       @id @default(autoincrement())
+  username   String    @unique @db.VarChar(50)
+  password   String
+  email      String
+  role       UserRole
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  employee   Employee?
+  admin      Admin?
+}
+
+
+model Employee {
+  id             Int       @id @default(autoincrement())
+  userId         Int       @unique
+  employeeNo     String    @unique
+  firstName      String    @db.VarChar(50)
+  lastName       String    @db.VarChar(50)
+  gender         Gender
+  status         Status    @default(ACTIVE)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  user           User      @relation(fields: [userId], references: [id])
+
+  Timesheets     Timesheet[]
+  DailySummaries DailySummary[]
+}
+
+
+model Admin {
+  id         Int       @id @default(autoincrement())
+  userId     Int       @unique
+  adminNo    String    @unique
+  firstName  String    @db.VarChar(50)
+  lastName   String    @db.VarChar(50)
+  gender     Gender
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  user       User      @relation(fields: [userId], references: [id])
+}
+
+model Timesheet {
+  id         Int            @id @default(autoincrement())
+  employeeId Int
+  time       DateTime
+  type       TimesheetType
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+
+  employee   Employee       @relation(fields: [employeeId], references: [id])
+}
+
+model DailySummary {
+  id            Int            @id @default(autoincrement())
+  employeeId    Int
+  date          DateTime
+  totalTime     Int
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  employee      Employee       @relation(fields: [employeeId], references: [id])
+
+  @@unique([employeeId, date])
+}
+
+enum UserRole {
+  EMPLOYEE
+  ADMIN
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+}
+
+enum TimesheetType {
+  TIME_IN
+  TIME_OUT
+  BREAK
+}
