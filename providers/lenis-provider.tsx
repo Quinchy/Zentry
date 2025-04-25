@@ -11,10 +11,8 @@ const LenisScrollProvider = ({ children }: LenisScrollProviderProps) => {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Initialize Lenis with your options
     lenisRef.current = new Lenis({
-      duration: 1.5,
-      lerp: 0.1,
+      duration: 1,
       smoothWheel: true,
     });
 

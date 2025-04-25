@@ -29,20 +29,20 @@ const WebLinkContainer = ({ links }: WebLinkContainerProps) => {
 
 export default function Footer() {
   return (
-    <div className="bg-dark-primary pt-28 pb-2 flex justify-center text-primary-foreground">
-      <div className="flex flex-col gap-5 w-full max-w-[1250px]">
-        <div className="flex items-start justify-between">
-          <div className="flex flex-col gap-2">
+    <div className="bg-dark-primary pt-20 pb-2 flex justify-center text-primary-foreground">
+      <div className="flex flex-col items-center lg:items-stretch gap-10 w-full max-w-[90%] md:max-w-[75%] lg:max-w-[75%] xl:max-w-[65%]">
+        <div className="flex gap-10 lg:flex-row flex-col items-start justify-between">
+          <div className="flex flex-col items-start gap-2">
             <div className="flex items-center gap-2">
               <Image src={Logo} alt="Logo" width={40} priority />
               <h1 className="font-black text-3xl">Zentry</h1>
             </div>
-            <p className="text-primary-foreground/85 text-sm">
+            <p className="text-primary-foreground/85 text-sm text-start">
               Bringing teams, tools, and tasks <br />
               into one seamless flow.
             </p>
           </div>
-          <div className="flex flex-row gap-20">
+          <div className="flex flex-row gap-5 lg:gap-20">
             <div className="flex flex-col justify-start gap-2">
               <h1 className="font-bold">Quick Link</h1>
               <WebLinkContainer
@@ -78,7 +78,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <p className="text-center text-sm text-primary-foreground/75">
+        <p className="text-center text-sm text-accent/50 pt-5 mb-2 border-t-[1px] border-t-border/25">
           © 2025 Zentry, Inc. - All rights reserved.
         </p>
       </div>

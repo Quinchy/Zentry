@@ -31,8 +31,8 @@ const GraphicCards = ({ image, title, desc }: GraphicCardsProps) => {
 
 export default function Section1() {
   return (
-    <div className="flex flex-col items-center justify-center gap-10 py-36">
-      <div className="flex items-end justify-center w-full max-w-[1200px]">
+    <div className="flex flex-col items-center justify-center gap-10 py-20 lg:py-36">
+      <div className="flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-10 w-full max-w-[90%] md:max-w-[75%] lg:max-w-[75%] xl:max-w-[65%]">
         <div className="flex flex-col items-start gap-2">
           <Badge
             icon={<Sparkles className="w-4 h-4" />}
@@ -48,7 +48,7 @@ export default function Section1() {
           integrated into one platform.
         </p>
       </div>
-      <div className="flex w-full max-w-[1200px] gap-4">
+      <div className="flex flex-col lg:flex-row w-full max-w-[90%] md:max-w-[75%] lg:max-w-[75%] xl:max-w-[65%] gap-4">
         <GraphicCards
           image={SectionGraphic1}
           title="Streamline your workforce."

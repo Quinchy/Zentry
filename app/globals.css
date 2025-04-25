@@ -42,6 +42,17 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --animate-move-down: move-down 500ms ease-in-out;
+  @keyframes move-down {
+    from {
+      opacity: 0;
+      transform: translateY(-100px)
+    }
+    to {
+      opacity: 100;
+      transform: translateY(0px)
+    }
+  }
 }
 
 :root {
