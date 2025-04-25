@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
-import SectionGraphic1 from "@/public/images/section-graphic-1.png"
-import SectionGraphic2 from "@/public/images/section-graphic-2.png"
-import SectionGraphic3 from "@/public/images/section-graphic-3.png"
+import SectionGraphic1 from "@/public/images/section-graphic-1.png";
+import SectionGraphic2 from "@/public/images/section-graphic-2.png";
+import SectionGraphic3 from "@/public/images/section-graphic-3.png";
 import { Badge } from "@/components/custom/badge";
 import { Sparkles } from "lucide-react";
 
@@ -14,7 +14,13 @@ type GraphicCardsProps = {
 const GraphicCards = ({ image, title, desc }: GraphicCardsProps) => {
   return (
     <div className="flex flex-col items-center bg-dark-primary text-primary-foreground p-10 rounded-2xl group">
-      <Image src={image} alt="Graphic Image" height={200} draggable="false" className="group-hover:scale-115 duration-300 ease-in-out transition-all"/>
+      <Image
+        src={image}
+        alt="Graphic Image"
+        height={200}
+        draggable="false"
+        className="group-hover:scale-115 duration-300 ease-in-out transition-all"
+      />
       <div className="flex flex-col items-center">
         <h1 className="text-xl font-bold text-center">{title}</h1>
         <p className="text-center text-primary-foreground/85">{desc}</p>

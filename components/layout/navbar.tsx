@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { Button } from "@/components/ui/button"
-import Logo from "@/public/images/logo.svg"
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import Logo from "@/public/images/logo.svg";
 
 export default function NavBar() {
   return (
@@ -16,7 +16,7 @@ export default function NavBar() {
           <Link href="/">About</Link>
           <Link href="/">Contact</Link>
           <Button asChild size={"xl"}>
-            <Link href="/">Dashboard</Link>
+            <Link href="/login">Login</Link>
           </Button>
         </div>
       </div>

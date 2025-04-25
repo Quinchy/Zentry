@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function EmployeeDashboard() {
-  return (
-    <div>EmployeeDashboard</div>
-  )
+  return <div>EmployeeDashboard</div>;
 }

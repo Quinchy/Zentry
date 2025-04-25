@@ -17,10 +17,7 @@ const WebLinkContainer = ({ links }: WebLinkContainerProps) => {
       <ul className="space-y-2">
         {links.map((link, index) => (
           <li key={index}>
-            <Link
-              href={link.href}
-              className="hover:underline text-sm"
-            >
+            <Link href={link.href} className="hover:underline text-sm">
               {link.label}
             </Link>
           </li>
@@ -81,7 +78,9 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <p className="text-center text-sm text-primary-foreground/75">© 2025 Zentry, Inc. - All rights reserved.</p>
+        <p className="text-center text-sm text-primary-foreground/75">
+          © 2025 Zentry, Inc. - All rights reserved.
+        </p>
       </div>
     </div>
   );

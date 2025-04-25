@@ -3,9 +3,9 @@ import { Badge } from "@/components/custom/badge";
 import { ListChecks, Clock3, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import HeroImage from "@/public/images/hero-image.png"
-import GridStars from "@/public/images/grid-stars.png"
-import Dashboard from "@/public/images/zentry-dashboard.png"
+import HeroImage from "@/public/images/hero-image.png";
+import GridStars from "@/public/images/grid-stars.png";
+import Dashboard from "@/public/images/zentry-dashboard.png";
 
 export default function Hero() {
   return (
