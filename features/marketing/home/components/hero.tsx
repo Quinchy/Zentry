@@ -1,13 +1,13 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/custom/badge";
+import { Button } from "@/components/shadcn/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { ListChecks, Clock3, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import HeroImage from "@/public/images/hero-image.png";
-import GridStars from "@/public/images/grid-stars.png";
-import Dashboard from "@/public/images/zentry-dashboard.png";
+import HeroImage from "@/public/images/home/hero-image.png";
+import GridStars from "@/public/images/home/grid-stars.png";
+import Dashboard from "@/public/images/home/zentry-dashboard.png";
 import { motion, useScroll, useTransform } from "motion/react";
 
 export default function Hero() {

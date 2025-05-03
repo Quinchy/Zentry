@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn/ui/button";
 import Logo from "@/public/images/logo.svg";
 import { Menu, X } from "lucide-react";
 
@@ -22,7 +22,9 @@ export default function NavBar() {
   return (
     <nav
       className={`inset-x-0 top-0 z-50 ${
-        isSticky ? "fixed bg-background shadow-md animate-move-down" : "absolute"
+        isSticky
+          ? "fixed bg-background shadow-md animate-move-down"
+          : "absolute"
       }`}
     >
       <div className="flex justify-between items-center w-full container max-w-[90%] md:max-w-[75%] xl:max-w-[65%] mx-auto py-6">

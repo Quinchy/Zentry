@@ -1,8 +1,8 @@
 import Image, { StaticImageData } from "next/image";
-import SectionGraphic1 from "@/public/images/section-graphic-1.png";
-import SectionGraphic2 from "@/public/images/section-graphic-2.png";
-import SectionGraphic3 from "@/public/images/section-graphic-3.png";
-import { Badge } from "@/components/custom/badge";
+import SectionGraphic1 from "@/public/images/home/section-graphic-1.png";
+import SectionGraphic2 from "@/public/images/home/section-graphic-2.png";
+import SectionGraphic3 from "@/public/images/home/section-graphic-3.png";
+import { Badge } from "@/components/ui/badge";
 import { Sparkles } from "lucide-react";
 
 type GraphicCardsProps = {
