@@ -74,7 +74,7 @@ function AlertDescription({
   const { variant } = React.useContext(AlertContext);
 
   // 3) Map each variant to a lighter text color
-  const descriptionColor: Record<AlertVariant, string> = {
+  const descriptionColor: { [key in NonNullable<AlertVariant>]: string } = {
     default: "text-card-foreground",
     error: "text-red-700/75",
     success: "text-green-700/75",
