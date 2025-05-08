@@ -27,9 +27,7 @@ export function Label({
       {...props}
     >
       {children}
-      {required && (
-        <Asterisk className="inline-block -mt-0.5 h-3 w-3" />
-      )}
+      {required && <Asterisk className="inline-block -mt-0.5 h-3 w-3" />}
     </LabelPrimitive.Root>
   );
 }

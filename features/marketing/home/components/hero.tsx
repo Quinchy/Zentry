@@ -60,7 +60,8 @@ export default function Hero() {
             width={HeroImage.width}
             height={HeroImage.height}
             className="z-10 max-w-[350px] md:max-w-[400px]"
-            priority
+            placeholder="empty"
+            priority={true}
           />
         </motion.div>
         <Image
@@ -83,7 +84,8 @@ export default function Hero() {
             width={Dashboard.width}
             height={Dashboard.height}
             className="rounded-xl shadow-primary/50 shadow-2xl"
-            priority
+            placeholder="blur"
+            priority={true}
           />
         </motion.div>
       </div>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button } from "@/components/shadcn/ui/button";
 import Logo from "@/public/images/logo.svg";
 import { Menu, X } from "lucide-react";
+import { routes } from "@/routes";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -29,10 +30,18 @@ export default function NavBar() {
     >
       <div className="flex justify-between items-center w-full container max-w-[90%] md:max-w-[75%] xl:max-w-[65%] mx-auto py-6">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <Image src={Logo} alt="Logo" width={40} priority />
-          <h1 className="font-black text-3xl">Zentry</h1>
-        </div>
+        <Link href={routes.home} className="flex items-center gap-2 group">
+          <Image
+            src={Logo}
+            alt="Logo"
+            width={40}
+            priority
+            className="group-hover:brightness-125 transition-all duration-300 ease-in-out"
+          />
+          <h1 className="font-black text-3xl text-primary group-hover:brightness-125 transition-all duration-300 ease-in-out">
+            Zentry
+          </h1>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-10">
