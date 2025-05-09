@@ -1,16 +1,16 @@
 // app/api/auth/google/route.ts
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/auth";
+import { createSupabaseClient } from "@/lib/auth/server";
 import { routes } from "@/routes";
 
 export async function GET() {
-  const supabase = await createClient();
+  const supabase = await createSupabaseClient();
 
   // Kick off OAuth & tell Supabase where to callback
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/callback?next=${routes.hrDashboard}`,
+      redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/callback?next=${routes.dashboard}`,
     },
   });
 

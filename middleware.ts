@@ -1,28 +1,24 @@
 // middleware.ts
 import { NextRequest, NextResponse } from "next/server";
-import { getUser } from "@/features/auth/actions/getUser";
+import { isAuthenticated } from "@/lib/auth/server";
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const userOrError = await getUser();
 
-  // 1) Already‐logged‐in users hitting /login or /register → go to HR dashboard
-  if (
-    (pathname === "/login" || pathname === "/register") &&
-    !(userOrError && "error" in userOrError)
-  ) {
-    return NextResponse.redirect(new URL("/dashboard/hr", request.url));
+  // Check once per request
+  const auth = await isAuthenticated();
+
+  // 1) If an already-logged-in user hits /login or /register → /dashboard
+  if ((pathname === "/login" || pathname === "/register") && auth) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
-  // 2) Unauthenticated users hitting /dashboard/* → go to /login
-  if (
-    pathname.startsWith("/dashboard") &&
-    userOrError &&
-    "error" in userOrError
-  ) {
+  // 2) If an unauthenticated user hits any /dashboard route → /login
+  if (pathname.startsWith("/dashboard") && !auth) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
+  // 3) Otherwise, continue as normal
   return NextResponse.next();
 }
 

@@ -1,20 +1,20 @@
 // app/api/auth/google/callback/route.ts
 import { NextResponse } from "next/server";
 import { routes } from "@/routes";
-import { createClient } from "@/lib/auth";
+import { createSupabaseClient } from "@/lib/auth/server";
 import { prisma } from "@/lib/prisma";
 import { v4 as uuidv4 } from "uuid";
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
-  const next = searchParams.get("next") ?? routes.hrDashboard;
+  const next = searchParams.get("next") ?? routes.dashboard;
 
   if (!code) {
     return NextResponse.redirect(`${origin}/auth/auth-code-error`);
   }
 
-  const supabase = await createClient();
+  const supabase = await createSupabaseClient();
   // 1) Exchange the OAuth code for a session
   const { error: exchangeError } =
     await supabase.auth.exchangeCodeForSession(code);
@@ -34,7 +34,7 @@ export async function GET(request: Request) {
   }
 
   // 3) Ensure there’s an Admin row for this user
-  const existing = await prisma.admin.findUnique({
+  const existing = await prisma.app_user.findUnique({
     where: { userId: user.id },
   });
 
@@ -45,12 +45,13 @@ export async function GET(request: Request) {
     const lastName =
       meta.family_name || meta.full_name?.split(" ").slice(1).join(" ") || "";
 
-    await prisma.admin.create({
+    await prisma.app_user.create({
       data: {
-        user: { connect: { id: user.id } },
-        adminNo: uuidv4(),
+        userId: user.id,
+        userNo: uuidv4(),
         firstName,
         lastName,
+        role: "ADMIN",
       },
     });
   }

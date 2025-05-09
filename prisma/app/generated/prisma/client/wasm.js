@@ -312,24 +312,14 @@ exports.Prisma.Sso_providersScalarFieldEnum = {
   updated_at: 'updated_at'
 };
 
-exports.Prisma.EmployeeScalarFieldEnum = {
+exports.Prisma.App_userScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  employeeNo: 'employeeNo',
+  userNo: 'userNo',
   firstName: 'firstName',
   lastName: 'lastName',
-  position: 'position',
+  role: 'role',
   status: 'status',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.AdminScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  adminNo: 'adminNo',
-  firstName: 'firstName',
-  lastName: 'lastName',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -412,6 +402,11 @@ exports.aal_level = exports.$Enums.aal_level = {
   aal3: 'aal3'
 };
 
+exports.UserRole = exports.$Enums.UserRole = {
+  EMPLOYEE: 'EMPLOYEE',
+  ADMIN: 'ADMIN'
+};
+
 exports.Status = exports.$Enums.Status = {
   ACTIVE: 'ACTIVE',
   INACTIVE: 'INACTIVE'
@@ -440,8 +435,7 @@ exports.Prisma.ModelName = {
   sessions: 'sessions',
   sso_domains: 'sso_domains',
   sso_providers: 'sso_providers',
-  employee: 'employee',
-  admin: 'admin',
+  app_user: 'app_user',
   timesheet: 'timesheet',
   daily_summary: 'daily_summary'
 };

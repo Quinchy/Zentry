@@ -7,11 +7,13 @@ import { Button } from "@/components/shadcn/ui/button";
 import Logo from "@/public/images/logo.svg";
 import { Menu, X } from "lucide-react";
 import { routes } from "@/routes";
+import { useIsAuthenticated } from "@/lib/auth/client";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-
+  const isAuthenticated = useIsAuthenticated();
+  // sticky header logic
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 650);
@@ -22,7 +24,7 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`inset-x-0 top-0 z-50 ${
+      className={`inset-x-0 top-0 z-[9999] ${
         isSticky
           ? "fixed bg-background shadow-md animate-move-down"
           : "absolute"
@@ -35,6 +37,7 @@ export default function NavBar() {
             src={Logo}
             alt="Logo"
             width={40}
+            height={40}
             priority
             className="group-hover:brightness-125 transition-all duration-300 ease-in-out"
           />
@@ -48,9 +51,15 @@ export default function NavBar() {
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
-          <Button asChild size="xl">
-            <Link href="/login">Login</Link>
-          </Button>
+          {isAuthenticated ? (
+            <Button asChild size="xl">
+              <Link href="/dashboard">Dashboard</Link>
+            </Button>
+          ) : (
+            <Button asChild size="xl">
+              <Link href="/login">Login</Link>
+            </Button>
+          )}
         </div>
 
         {/* Mobile Hamburger */}
@@ -96,11 +105,19 @@ export default function NavBar() {
           >
             Contact
           </Link>
-          <Button asChild size="xl">
-            <Link href="/login" onClick={() => setOpen(false)}>
-              Login
-            </Link>
-          </Button>
+          {isAuthenticated ? (
+            <Button asChild size="xl">
+              <Link href="/dashboard" onClick={() => setOpen(false)}>
+                Dashboard
+              </Link>
+            </Button>
+          ) : (
+            <Button asChild size="xl">
+              <Link href="/login" onClick={() => setOpen(false)}>
+                Login
+              </Link>
+            </Button>
+          )}
         </div>
       )}
     </nav>

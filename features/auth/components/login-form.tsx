@@ -54,7 +54,7 @@ export default function LoginForm({ className }: { className?: string }) {
         duration: 2000,
       });
       setTimeout(() => {
-        router.push(routes.hrDashboard);
+        router.push(routes.dashboard);
       }, 1000);
     } catch (error: unknown) {
       toast.error(

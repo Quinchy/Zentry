@@ -1,9 +1,9 @@
 "use server";
 
-import { createClient } from "@/lib/auth";
+import { createSupabaseClient } from "@/lib/auth/server";
 
 export async function login(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = await createSupabaseClient();
   const data = {
     email: formData.get("email") as string,
     password: formData.get("password") as string,
@@ -16,7 +16,7 @@ export async function login(formData: FormData) {
 }
 
 export async function signOut() {
-  const supabase = await createClient();
+  const supabase = await createSupabaseClient();
   const { error } = await supabase.auth.signOut();
   if (error) {
     return { error: error.message };

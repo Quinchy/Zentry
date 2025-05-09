@@ -54,10 +54,7 @@ model User {
   mfa_factors                 mfa_factors[]
   one_time_tokens             one_time_tokens[]
   sessions                    sessions[]
-  employee                    employee?
-  admin                       admin?
-  timesheets                  timesheet[]
-  dailySummaries              daily_summary[]
+  user                        app_user?
 
   @@index([instance_id])
   @@index([is_anonymous])
@@ -340,46 +337,33 @@ enum one_time_token_type {
  * Public Schema
  */
 
-model employee {
-  id         Int      @id @default(autoincrement())
-  userId     String   @unique @db.Uuid
-  employeeNo String   @unique
-  firstName  String   @db.VarChar(50)
-  lastName   String   @db.VarChar(50)
-  position   String   @db.VarChar(50)
-  status     Status   @default(ACTIVE)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-
-  user User @relation(fields: [userId], references: [id])
-
-  @@map("employee")
-  @@schema("public")
-}
-
-model admin {
+model app_user {
   id        Int      @id @default(autoincrement())
   userId    String   @unique @db.Uuid
-  adminNo   String   @unique
+  userNo    String   @unique
   firstName String   @db.VarChar(50)
   lastName  String   @db.VarChar(50)
+  role      UserRole @default(ADMIN)
+  status    Status   @default(ACTIVE)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user User @relation(fields: [userId], references: [id])
+  user          User            @relation(fields: [userId], references: [id])
+  timesheet     timesheet[]
+  daily_summary daily_summary[]
 
-  @@map("admin")
+  @@map("app_user")
   @@schema("public")
 }
 
 model timesheet {
   id        Int           @id @default(autoincrement())
-  userId    String        @db.Uuid
+  userId    Int
   time      DateTime
   type      TimesheetType
   createdAt DateTime      @default(now())
   updatedAt DateTime      @updatedAt
-  user      User          @relation(fields: [userId], references: [id])
+  user      app_user      @relation(fields: [userId], references: [id])
 
   @@map("timesheet")
   @@schema("public")
@@ -387,12 +371,12 @@ model timesheet {
 
 model daily_summary {
   id        Int      @id @default(autoincrement())
-  userId    String   @db.Uuid
+  userId    Int
   date      DateTime
   totalTime Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  user      User     @relation(fields: [userId], references: [id])
+  user      app_user @relation(fields: [userId], references: [id])
 
   @@unique([userId, date])
   @@map("daily_summary")

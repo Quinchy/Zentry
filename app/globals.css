@@ -86,10 +86,11 @@
   --sidebar-foreground: #121112;
   --sidebar-primary: #7e43cb;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #d8c5d7;
+  --sidebar-accent: #d8c5d775;
   --sidebar-accent-foreground: #000000;
   --sidebar-border: #9e89b8;
   --sidebar-ring: #3e02e3;
+  --sidebar: hsl(0 0% 98%);
 }
 
 .dark {
@@ -126,6 +127,7 @@
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #4f3d66;
   --sidebar-ring: #3e02e3;
+  --sidebar: hsl(240 5.9% 10%);
 }
 
 @layer base {

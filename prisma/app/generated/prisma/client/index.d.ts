@@ -94,15 +94,10 @@ export type sso_domains = $Result.DefaultSelection<Prisma.$sso_domainsPayload>
  */
 export type sso_providers = $Result.DefaultSelection<Prisma.$sso_providersPayload>
 /**
- * Model employee
+ * Model app_user
  * 
  */
-export type employee = $Result.DefaultSelection<Prisma.$employeePayload>
-/**
- * Model admin
- * 
- */
-export type admin = $Result.DefaultSelection<Prisma.$adminPayload>
+export type app_user = $Result.DefaultSelection<Prisma.$app_userPayload>
 /**
  * Model timesheet
  * 
@@ -508,24 +503,14 @@ export class PrismaClient<
   get sso_providers(): Prisma.sso_providersDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.employee`: Exposes CRUD operations for the **employee** model.
+   * `prisma.app_user`: Exposes CRUD operations for the **app_user** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Employees
-    * const employees = await prisma.employee.findMany()
+    * // Fetch zero or more App_users
+    * const app_users = await prisma.app_user.findMany()
     * ```
     */
-  get employee(): Prisma.employeeDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.admin`: Exposes CRUD operations for the **admin** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Admins
-    * const admins = await prisma.admin.findMany()
-    * ```
-    */
-  get admin(): Prisma.adminDelegate<ExtArgs, ClientOptions>;
+  get app_user(): Prisma.app_userDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.timesheet`: Exposes CRUD operations for the **timesheet** model.
@@ -1002,8 +987,7 @@ export namespace Prisma {
     sessions: 'sessions',
     sso_domains: 'sso_domains',
     sso_providers: 'sso_providers',
-    employee: 'employee',
-    admin: 'admin',
+    app_user: 'app_user',
     timesheet: 'timesheet',
     daily_summary: 'daily_summary'
   };
@@ -1024,7 +1008,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "audit_log_entries" | "flow_state" | "identities" | "instances" | "mfa_amr_claims" | "mfa_challenges" | "mfa_factors" | "one_time_tokens" | "refresh_tokens" | "saml_providers" | "saml_relay_states" | "schema_migrations" | "sessions" | "sso_domains" | "sso_providers" | "employee" | "admin" | "timesheet" | "daily_summary"
+      modelProps: "user" | "audit_log_entries" | "flow_state" | "identities" | "instances" | "mfa_amr_claims" | "mfa_challenges" | "mfa_factors" | "one_time_tokens" | "refresh_tokens" | "saml_providers" | "saml_relay_states" | "schema_migrations" | "sessions" | "sso_domains" | "sso_providers" | "app_user" | "timesheet" | "daily_summary"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2212,151 +2196,77 @@ export namespace Prisma {
           }
         }
       }
-      employee: {
-        payload: Prisma.$employeePayload<ExtArgs>
-        fields: Prisma.employeeFieldRefs
+      app_user: {
+        payload: Prisma.$app_userPayload<ExtArgs>
+        fields: Prisma.app_userFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.employeeFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employeePayload> | null
+            args: Prisma.app_userFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_userPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.employeeFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employeePayload>
+            args: Prisma.app_userFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_userPayload>
           }
           findFirst: {
-            args: Prisma.employeeFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employeePayload> | null
+            args: Prisma.app_userFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_userPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.employeeFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employeePayload>
+            args: Prisma.app_userFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_userPayload>
           }
           findMany: {
-            args: Prisma.employeeFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employeePayload>[]
+            args: Prisma.app_userFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_userPayload>[]
           }
           create: {
-            args: Prisma.employeeCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employeePayload>
+            args: Prisma.app_userCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_userPayload>
           }
           createMany: {
-            args: Prisma.employeeCreateManyArgs<ExtArgs>
+            args: Prisma.app_userCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.employeeCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employeePayload>[]
+            args: Prisma.app_userCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_userPayload>[]
           }
           delete: {
-            args: Prisma.employeeDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employeePayload>
+            args: Prisma.app_userDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_userPayload>
           }
           update: {
-            args: Prisma.employeeUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employeePayload>
+            args: Prisma.app_userUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_userPayload>
           }
           deleteMany: {
-            args: Prisma.employeeDeleteManyArgs<ExtArgs>
+            args: Prisma.app_userDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.employeeUpdateManyArgs<ExtArgs>
+            args: Prisma.app_userUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.employeeUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employeePayload>[]
+            args: Prisma.app_userUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_userPayload>[]
           }
           upsert: {
-            args: Prisma.employeeUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employeePayload>
+            args: Prisma.app_userUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_userPayload>
           }
           aggregate: {
-            args: Prisma.EmployeeAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateEmployee>
+            args: Prisma.App_userAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateApp_user>
           }
           groupBy: {
-            args: Prisma.employeeGroupByArgs<ExtArgs>
-            result: $Utils.Optional<EmployeeGroupByOutputType>[]
+            args: Prisma.app_userGroupByArgs<ExtArgs>
+            result: $Utils.Optional<App_userGroupByOutputType>[]
           }
           count: {
-            args: Prisma.employeeCountArgs<ExtArgs>
-            result: $Utils.Optional<EmployeeCountAggregateOutputType> | number
-          }
-        }
-      }
-      admin: {
-        payload: Prisma.$adminPayload<ExtArgs>
-        fields: Prisma.adminFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.adminFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$adminPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.adminFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$adminPayload>
-          }
-          findFirst: {
-            args: Prisma.adminFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$adminPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.adminFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$adminPayload>
-          }
-          findMany: {
-            args: Prisma.adminFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$adminPayload>[]
-          }
-          create: {
-            args: Prisma.adminCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$adminPayload>
-          }
-          createMany: {
-            args: Prisma.adminCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.adminCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$adminPayload>[]
-          }
-          delete: {
-            args: Prisma.adminDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$adminPayload>
-          }
-          update: {
-            args: Prisma.adminUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$adminPayload>
-          }
-          deleteMany: {
-            args: Prisma.adminDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.adminUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.adminUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$adminPayload>[]
-          }
-          upsert: {
-            args: Prisma.adminUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$adminPayload>
-          }
-          aggregate: {
-            args: Prisma.AdminAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateAdmin>
-          }
-          groupBy: {
-            args: Prisma.adminGroupByArgs<ExtArgs>
-            result: $Utils.Optional<AdminGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.adminCountArgs<ExtArgs>
-            result: $Utils.Optional<AdminCountAggregateOutputType> | number
+            args: Prisma.app_userCountArgs<ExtArgs>
+            result: $Utils.Optional<App_userCountAggregateOutputType> | number
           }
         }
       }
@@ -2608,8 +2518,7 @@ export namespace Prisma {
     sessions?: sessionsOmit
     sso_domains?: sso_domainsOmit
     sso_providers?: sso_providersOmit
-    employee?: employeeOmit
-    admin?: adminOmit
+    app_user?: app_userOmit
     timesheet?: timesheetOmit
     daily_summary?: daily_summaryOmit
   }
@@ -2710,8 +2619,6 @@ export namespace Prisma {
     mfa_factors: number
     one_time_tokens: number
     sessions: number
-    timesheets: number
-    dailySummaries: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2719,8 +2626,6 @@ export namespace Prisma {
     mfa_factors?: boolean | UserCountOutputTypeCountMfa_factorsArgs
     one_time_tokens?: boolean | UserCountOutputTypeCountOne_time_tokensArgs
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
-    timesheets?: boolean | UserCountOutputTypeCountTimesheetsArgs
-    dailySummaries?: boolean | UserCountOutputTypeCountDailySummariesArgs
   }
 
   // Custom InputTypes
@@ -2760,20 +2665,6 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: sessionsWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountTimesheetsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: timesheetWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountDailySummariesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: daily_summaryWhereInput
   }
 
 
@@ -2925,6 +2816,46 @@ export namespace Prisma {
    */
   export type Sso_providersCountOutputTypeCountSso_domainsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: sso_domainsWhereInput
+  }
+
+
+  /**
+   * Count Type App_userCountOutputType
+   */
+
+  export type App_userCountOutputType = {
+    timesheet: number
+    daily_summary: number
+  }
+
+  export type App_userCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    timesheet?: boolean | App_userCountOutputTypeCountTimesheetArgs
+    daily_summary?: boolean | App_userCountOutputTypeCountDaily_summaryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * App_userCountOutputType without action
+   */
+  export type App_userCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the App_userCountOutputType
+     */
+    select?: App_userCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * App_userCountOutputType without action
+   */
+  export type App_userCountOutputTypeCountTimesheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: timesheetWhereInput
+  }
+
+  /**
+   * App_userCountOutputType without action
+   */
+  export type App_userCountOutputTypeCountDaily_summaryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: daily_summaryWhereInput
   }
 
 
@@ -3366,10 +3297,7 @@ export namespace Prisma {
     mfa_factors?: boolean | User$mfa_factorsArgs<ExtArgs>
     one_time_tokens?: boolean | User$one_time_tokensArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
-    employee?: boolean | User$employeeArgs<ExtArgs>
-    admin?: boolean | User$adminArgs<ExtArgs>
-    timesheets?: boolean | User$timesheetsArgs<ExtArgs>
-    dailySummaries?: boolean | User$dailySummariesArgs<ExtArgs>
+    user?: boolean | User$userArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -3493,10 +3421,7 @@ export namespace Prisma {
     mfa_factors?: boolean | User$mfa_factorsArgs<ExtArgs>
     one_time_tokens?: boolean | User$one_time_tokensArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
-    employee?: boolean | User$employeeArgs<ExtArgs>
-    admin?: boolean | User$adminArgs<ExtArgs>
-    timesheets?: boolean | User$timesheetsArgs<ExtArgs>
-    dailySummaries?: boolean | User$dailySummariesArgs<ExtArgs>
+    user?: boolean | User$userArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3509,10 +3434,7 @@ export namespace Prisma {
       mfa_factors: Prisma.$mfa_factorsPayload<ExtArgs>[]
       one_time_tokens: Prisma.$one_time_tokensPayload<ExtArgs>[]
       sessions: Prisma.$sessionsPayload<ExtArgs>[]
-      employee: Prisma.$employeePayload<ExtArgs> | null
-      admin: Prisma.$adminPayload<ExtArgs> | null
-      timesheets: Prisma.$timesheetPayload<ExtArgs>[]
-      dailySummaries: Prisma.$daily_summaryPayload<ExtArgs>[]
+      user: Prisma.$app_userPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       instance_id: string | null
@@ -3948,10 +3870,7 @@ export namespace Prisma {
     mfa_factors<T extends User$mfa_factorsArgs<ExtArgs> = {}>(args?: Subset<T, User$mfa_factorsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mfa_factorsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     one_time_tokens<T extends User$one_time_tokensArgs<ExtArgs> = {}>(args?: Subset<T, User$one_time_tokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$one_time_tokensPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sessionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    employee<T extends User$employeeArgs<ExtArgs> = {}>(args?: Subset<T, User$employeeArgs<ExtArgs>>): Prisma__employeeClient<$Result.GetResult<Prisma.$employeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    admin<T extends User$adminArgs<ExtArgs> = {}>(args?: Subset<T, User$adminArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    timesheets<T extends User$timesheetsArgs<ExtArgs> = {}>(args?: Subset<T, User$timesheetsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$timesheetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    dailySummaries<T extends User$dailySummariesArgs<ExtArgs> = {}>(args?: Subset<T, User$dailySummariesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$daily_summaryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user<T extends User$userArgs<ExtArgs> = {}>(args?: Subset<T, User$userArgs<ExtArgs>>): Prisma__app_userClient<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4500,89 +4419,22 @@ export namespace Prisma {
   }
 
   /**
-   * User.employee
+   * User.user
    */
-  export type User$employeeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the app_user
      */
-    select?: employeeSelect<ExtArgs> | null
+    select?: app_userSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the app_user
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeInclude<ExtArgs> | null
-    where?: employeeWhereInput
-  }
-
-  /**
-   * User.admin
-   */
-  export type User$adminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the admin
-     */
-    select?: adminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the admin
-     */
-    omit?: adminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: adminInclude<ExtArgs> | null
-    where?: adminWhereInput
-  }
-
-  /**
-   * User.timesheets
-   */
-  export type User$timesheetsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the timesheet
-     */
-    select?: timesheetSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the timesheet
-     */
-    omit?: timesheetOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: timesheetInclude<ExtArgs> | null
-    where?: timesheetWhereInput
-    orderBy?: timesheetOrderByWithRelationInput | timesheetOrderByWithRelationInput[]
-    cursor?: timesheetWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: TimesheetScalarFieldEnum | TimesheetScalarFieldEnum[]
-  }
-
-  /**
-   * User.dailySummaries
-   */
-  export type User$dailySummariesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the daily_summary
-     */
-    select?: daily_summarySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the daily_summary
-     */
-    omit?: daily_summaryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: daily_summaryInclude<ExtArgs> | null
-    where?: daily_summaryWhereInput
-    orderBy?: daily_summaryOrderByWithRelationInput | daily_summaryOrderByWithRelationInput[]
-    cursor?: daily_summaryWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Daily_summaryScalarFieldEnum | Daily_summaryScalarFieldEnum[]
+    include?: app_userInclude<ExtArgs> | null
+    where?: app_userWhereInput
   }
 
   /**
@@ -20956,56 +20808,56 @@ export namespace Prisma {
 
 
   /**
-   * Model employee
+   * Model app_user
    */
 
-  export type AggregateEmployee = {
-    _count: EmployeeCountAggregateOutputType | null
-    _avg: EmployeeAvgAggregateOutputType | null
-    _sum: EmployeeSumAggregateOutputType | null
-    _min: EmployeeMinAggregateOutputType | null
-    _max: EmployeeMaxAggregateOutputType | null
+  export type AggregateApp_user = {
+    _count: App_userCountAggregateOutputType | null
+    _avg: App_userAvgAggregateOutputType | null
+    _sum: App_userSumAggregateOutputType | null
+    _min: App_userMinAggregateOutputType | null
+    _max: App_userMaxAggregateOutputType | null
   }
 
-  export type EmployeeAvgAggregateOutputType = {
+  export type App_userAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type EmployeeSumAggregateOutputType = {
+  export type App_userSumAggregateOutputType = {
     id: number | null
   }
 
-  export type EmployeeMinAggregateOutputType = {
+  export type App_userMinAggregateOutputType = {
     id: number | null
     userId: string | null
-    employeeNo: string | null
+    userNo: string | null
     firstName: string | null
     lastName: string | null
-    position: string | null
+    role: $Enums.UserRole | null
     status: $Enums.Status | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type EmployeeMaxAggregateOutputType = {
+  export type App_userMaxAggregateOutputType = {
     id: number | null
     userId: string | null
-    employeeNo: string | null
+    userNo: string | null
     firstName: string | null
     lastName: string | null
-    position: string | null
+    role: $Enums.UserRole | null
     status: $Enums.Status | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type EmployeeCountAggregateOutputType = {
+  export type App_userCountAggregateOutputType = {
     id: number
     userId: number
-    employeeNo: number
+    userNo: number
     firstName: number
     lastName: number
-    position: number
+    role: number
     status: number
     createdAt: number
     updatedAt: number
@@ -21013,375 +20865,383 @@ export namespace Prisma {
   }
 
 
-  export type EmployeeAvgAggregateInputType = {
+  export type App_userAvgAggregateInputType = {
     id?: true
   }
 
-  export type EmployeeSumAggregateInputType = {
+  export type App_userSumAggregateInputType = {
     id?: true
   }
 
-  export type EmployeeMinAggregateInputType = {
+  export type App_userMinAggregateInputType = {
     id?: true
     userId?: true
-    employeeNo?: true
+    userNo?: true
     firstName?: true
     lastName?: true
-    position?: true
+    role?: true
     status?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type EmployeeMaxAggregateInputType = {
+  export type App_userMaxAggregateInputType = {
     id?: true
     userId?: true
-    employeeNo?: true
+    userNo?: true
     firstName?: true
     lastName?: true
-    position?: true
+    role?: true
     status?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type EmployeeCountAggregateInputType = {
+  export type App_userCountAggregateInputType = {
     id?: true
     userId?: true
-    employeeNo?: true
+    userNo?: true
     firstName?: true
     lastName?: true
-    position?: true
+    role?: true
     status?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
   }
 
-  export type EmployeeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type App_userAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which employee to aggregate.
+     * Filter which app_user to aggregate.
      */
-    where?: employeeWhereInput
+    where?: app_userWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of employees to fetch.
+     * Determine the order of app_users to fetch.
      */
-    orderBy?: employeeOrderByWithRelationInput | employeeOrderByWithRelationInput[]
+    orderBy?: app_userOrderByWithRelationInput | app_userOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: employeeWhereUniqueInput
+    cursor?: app_userWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` employees from the position of the cursor.
+     * Take `±n` app_users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` employees.
+     * Skip the first `n` app_users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned employees
+     * Count returned app_users
     **/
-    _count?: true | EmployeeCountAggregateInputType
+    _count?: true | App_userCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: EmployeeAvgAggregateInputType
+    _avg?: App_userAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: EmployeeSumAggregateInputType
+    _sum?: App_userSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: EmployeeMinAggregateInputType
+    _min?: App_userMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: EmployeeMaxAggregateInputType
+    _max?: App_userMaxAggregateInputType
   }
 
-  export type GetEmployeeAggregateType<T extends EmployeeAggregateArgs> = {
-        [P in keyof T & keyof AggregateEmployee]: P extends '_count' | 'count'
+  export type GetApp_userAggregateType<T extends App_userAggregateArgs> = {
+        [P in keyof T & keyof AggregateApp_user]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateEmployee[P]>
-      : GetScalarType<T[P], AggregateEmployee[P]>
+        : GetScalarType<T[P], AggregateApp_user[P]>
+      : GetScalarType<T[P], AggregateApp_user[P]>
   }
 
 
 
 
-  export type employeeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: employeeWhereInput
-    orderBy?: employeeOrderByWithAggregationInput | employeeOrderByWithAggregationInput[]
-    by: EmployeeScalarFieldEnum[] | EmployeeScalarFieldEnum
-    having?: employeeScalarWhereWithAggregatesInput
+  export type app_userGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: app_userWhereInput
+    orderBy?: app_userOrderByWithAggregationInput | app_userOrderByWithAggregationInput[]
+    by: App_userScalarFieldEnum[] | App_userScalarFieldEnum
+    having?: app_userScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: EmployeeCountAggregateInputType | true
-    _avg?: EmployeeAvgAggregateInputType
-    _sum?: EmployeeSumAggregateInputType
-    _min?: EmployeeMinAggregateInputType
-    _max?: EmployeeMaxAggregateInputType
+    _count?: App_userCountAggregateInputType | true
+    _avg?: App_userAvgAggregateInputType
+    _sum?: App_userSumAggregateInputType
+    _min?: App_userMinAggregateInputType
+    _max?: App_userMaxAggregateInputType
   }
 
-  export type EmployeeGroupByOutputType = {
+  export type App_userGroupByOutputType = {
     id: number
     userId: string
-    employeeNo: string
+    userNo: string
     firstName: string
     lastName: string
-    position: string
+    role: $Enums.UserRole
     status: $Enums.Status
     createdAt: Date
     updatedAt: Date
-    _count: EmployeeCountAggregateOutputType | null
-    _avg: EmployeeAvgAggregateOutputType | null
-    _sum: EmployeeSumAggregateOutputType | null
-    _min: EmployeeMinAggregateOutputType | null
-    _max: EmployeeMaxAggregateOutputType | null
+    _count: App_userCountAggregateOutputType | null
+    _avg: App_userAvgAggregateOutputType | null
+    _sum: App_userSumAggregateOutputType | null
+    _min: App_userMinAggregateOutputType | null
+    _max: App_userMaxAggregateOutputType | null
   }
 
-  type GetEmployeeGroupByPayload<T extends employeeGroupByArgs> = Prisma.PrismaPromise<
+  type GetApp_userGroupByPayload<T extends app_userGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<EmployeeGroupByOutputType, T['by']> &
+      PickEnumerable<App_userGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof EmployeeGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof App_userGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], EmployeeGroupByOutputType[P]>
-            : GetScalarType<T[P], EmployeeGroupByOutputType[P]>
+              : GetScalarType<T[P], App_userGroupByOutputType[P]>
+            : GetScalarType<T[P], App_userGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type employeeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type app_userSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    employeeNo?: boolean
+    userNo?: boolean
     firstName?: boolean
     lastName?: boolean
-    position?: boolean
+    role?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["employee"]>
+    timesheet?: boolean | app_user$timesheetArgs<ExtArgs>
+    daily_summary?: boolean | app_user$daily_summaryArgs<ExtArgs>
+    _count?: boolean | App_userCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["app_user"]>
 
-  export type employeeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type app_userSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    employeeNo?: boolean
+    userNo?: boolean
     firstName?: boolean
     lastName?: boolean
-    position?: boolean
+    role?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["employee"]>
+  }, ExtArgs["result"]["app_user"]>
 
-  export type employeeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type app_userSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    employeeNo?: boolean
+    userNo?: boolean
     firstName?: boolean
     lastName?: boolean
-    position?: boolean
+    role?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["employee"]>
+  }, ExtArgs["result"]["app_user"]>
 
-  export type employeeSelectScalar = {
+  export type app_userSelectScalar = {
     id?: boolean
     userId?: boolean
-    employeeNo?: boolean
+    userNo?: boolean
     firstName?: boolean
     lastName?: boolean
-    position?: boolean
+    role?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type employeeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "employeeNo" | "firstName" | "lastName" | "position" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["employee"]>
-  export type employeeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "userNo" | "firstName" | "lastName" | "role" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["app_user"]>
+  export type app_userInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    timesheet?: boolean | app_user$timesheetArgs<ExtArgs>
+    daily_summary?: boolean | app_user$daily_summaryArgs<ExtArgs>
+    _count?: boolean | App_userCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type app_userIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type employeeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type employeeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
-  export type $employeePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "employee"
+  export type $app_userPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "app_user"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
+      timesheet: Prisma.$timesheetPayload<ExtArgs>[]
+      daily_summary: Prisma.$daily_summaryPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       userId: string
-      employeeNo: string
+      userNo: string
       firstName: string
       lastName: string
-      position: string
+      role: $Enums.UserRole
       status: $Enums.Status
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["employee"]>
+    }, ExtArgs["result"]["app_user"]>
     composites: {}
   }
 
-  type employeeGetPayload<S extends boolean | null | undefined | employeeDefaultArgs> = $Result.GetResult<Prisma.$employeePayload, S>
+  type app_userGetPayload<S extends boolean | null | undefined | app_userDefaultArgs> = $Result.GetResult<Prisma.$app_userPayload, S>
 
-  type employeeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<employeeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: EmployeeCountAggregateInputType | true
+  type app_userCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<app_userFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: App_userCountAggregateInputType | true
     }
 
-  export interface employeeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['employee'], meta: { name: 'employee' } }
+  export interface app_userDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['app_user'], meta: { name: 'app_user' } }
     /**
-     * Find zero or one Employee that matches the filter.
-     * @param {employeeFindUniqueArgs} args - Arguments to find a Employee
+     * Find zero or one App_user that matches the filter.
+     * @param {app_userFindUniqueArgs} args - Arguments to find a App_user
      * @example
-     * // Get one Employee
-     * const employee = await prisma.employee.findUnique({
+     * // Get one App_user
+     * const app_user = await prisma.app_user.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends employeeFindUniqueArgs>(args: SelectSubset<T, employeeFindUniqueArgs<ExtArgs>>): Prisma__employeeClient<$Result.GetResult<Prisma.$employeePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends app_userFindUniqueArgs>(args: SelectSubset<T, app_userFindUniqueArgs<ExtArgs>>): Prisma__app_userClient<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Employee that matches the filter or throw an error with `error.code='P2025'`
+     * Find one App_user that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {employeeFindUniqueOrThrowArgs} args - Arguments to find a Employee
+     * @param {app_userFindUniqueOrThrowArgs} args - Arguments to find a App_user
      * @example
-     * // Get one Employee
-     * const employee = await prisma.employee.findUniqueOrThrow({
+     * // Get one App_user
+     * const app_user = await prisma.app_user.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends employeeFindUniqueOrThrowArgs>(args: SelectSubset<T, employeeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__employeeClient<$Result.GetResult<Prisma.$employeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends app_userFindUniqueOrThrowArgs>(args: SelectSubset<T, app_userFindUniqueOrThrowArgs<ExtArgs>>): Prisma__app_userClient<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Employee that matches the filter.
+     * Find the first App_user that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {employeeFindFirstArgs} args - Arguments to find a Employee
+     * @param {app_userFindFirstArgs} args - Arguments to find a App_user
      * @example
-     * // Get one Employee
-     * const employee = await prisma.employee.findFirst({
+     * // Get one App_user
+     * const app_user = await prisma.app_user.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends employeeFindFirstArgs>(args?: SelectSubset<T, employeeFindFirstArgs<ExtArgs>>): Prisma__employeeClient<$Result.GetResult<Prisma.$employeePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends app_userFindFirstArgs>(args?: SelectSubset<T, app_userFindFirstArgs<ExtArgs>>): Prisma__app_userClient<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Employee that matches the filter or
+     * Find the first App_user that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {employeeFindFirstOrThrowArgs} args - Arguments to find a Employee
+     * @param {app_userFindFirstOrThrowArgs} args - Arguments to find a App_user
      * @example
-     * // Get one Employee
-     * const employee = await prisma.employee.findFirstOrThrow({
+     * // Get one App_user
+     * const app_user = await prisma.app_user.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends employeeFindFirstOrThrowArgs>(args?: SelectSubset<T, employeeFindFirstOrThrowArgs<ExtArgs>>): Prisma__employeeClient<$Result.GetResult<Prisma.$employeePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends app_userFindFirstOrThrowArgs>(args?: SelectSubset<T, app_userFindFirstOrThrowArgs<ExtArgs>>): Prisma__app_userClient<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Employees that matches the filter.
+     * Find zero or more App_users that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {employeeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {app_userFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Employees
-     * const employees = await prisma.employee.findMany()
+     * // Get all App_users
+     * const app_users = await prisma.app_user.findMany()
      * 
-     * // Get first 10 Employees
-     * const employees = await prisma.employee.findMany({ take: 10 })
+     * // Get first 10 App_users
+     * const app_users = await prisma.app_user.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const employeeWithIdOnly = await prisma.employee.findMany({ select: { id: true } })
+     * const app_userWithIdOnly = await prisma.app_user.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends employeeFindManyArgs>(args?: SelectSubset<T, employeeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employeePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends app_userFindManyArgs>(args?: SelectSubset<T, app_userFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Employee.
-     * @param {employeeCreateArgs} args - Arguments to create a Employee.
+     * Create a App_user.
+     * @param {app_userCreateArgs} args - Arguments to create a App_user.
      * @example
-     * // Create one Employee
-     * const Employee = await prisma.employee.create({
+     * // Create one App_user
+     * const App_user = await prisma.app_user.create({
      *   data: {
-     *     // ... data to create a Employee
+     *     // ... data to create a App_user
      *   }
      * })
      * 
      */
-    create<T extends employeeCreateArgs>(args: SelectSubset<T, employeeCreateArgs<ExtArgs>>): Prisma__employeeClient<$Result.GetResult<Prisma.$employeePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends app_userCreateArgs>(args: SelectSubset<T, app_userCreateArgs<ExtArgs>>): Prisma__app_userClient<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Employees.
-     * @param {employeeCreateManyArgs} args - Arguments to create many Employees.
+     * Create many App_users.
+     * @param {app_userCreateManyArgs} args - Arguments to create many App_users.
      * @example
-     * // Create many Employees
-     * const employee = await prisma.employee.createMany({
+     * // Create many App_users
+     * const app_user = await prisma.app_user.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends employeeCreateManyArgs>(args?: SelectSubset<T, employeeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends app_userCreateManyArgs>(args?: SelectSubset<T, app_userCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Employees and returns the data saved in the database.
-     * @param {employeeCreateManyAndReturnArgs} args - Arguments to create many Employees.
+     * Create many App_users and returns the data saved in the database.
+     * @param {app_userCreateManyAndReturnArgs} args - Arguments to create many App_users.
      * @example
-     * // Create many Employees
-     * const employee = await prisma.employee.createManyAndReturn({
+     * // Create many App_users
+     * const app_user = await prisma.app_user.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Employees and only return the `id`
-     * const employeeWithIdOnly = await prisma.employee.createManyAndReturn({
+     * // Create many App_users and only return the `id`
+     * const app_userWithIdOnly = await prisma.app_user.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -21391,28 +21251,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends employeeCreateManyAndReturnArgs>(args?: SelectSubset<T, employeeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employeePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends app_userCreateManyAndReturnArgs>(args?: SelectSubset<T, app_userCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Employee.
-     * @param {employeeDeleteArgs} args - Arguments to delete one Employee.
+     * Delete a App_user.
+     * @param {app_userDeleteArgs} args - Arguments to delete one App_user.
      * @example
-     * // Delete one Employee
-     * const Employee = await prisma.employee.delete({
+     * // Delete one App_user
+     * const App_user = await prisma.app_user.delete({
      *   where: {
-     *     // ... filter to delete one Employee
+     *     // ... filter to delete one App_user
      *   }
      * })
      * 
      */
-    delete<T extends employeeDeleteArgs>(args: SelectSubset<T, employeeDeleteArgs<ExtArgs>>): Prisma__employeeClient<$Result.GetResult<Prisma.$employeePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends app_userDeleteArgs>(args: SelectSubset<T, app_userDeleteArgs<ExtArgs>>): Prisma__app_userClient<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Employee.
-     * @param {employeeUpdateArgs} args - Arguments to update one Employee.
+     * Update one App_user.
+     * @param {app_userUpdateArgs} args - Arguments to update one App_user.
      * @example
-     * // Update one Employee
-     * const employee = await prisma.employee.update({
+     * // Update one App_user
+     * const app_user = await prisma.app_user.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -21422,30 +21282,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends employeeUpdateArgs>(args: SelectSubset<T, employeeUpdateArgs<ExtArgs>>): Prisma__employeeClient<$Result.GetResult<Prisma.$employeePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends app_userUpdateArgs>(args: SelectSubset<T, app_userUpdateArgs<ExtArgs>>): Prisma__app_userClient<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Employees.
-     * @param {employeeDeleteManyArgs} args - Arguments to filter Employees to delete.
+     * Delete zero or more App_users.
+     * @param {app_userDeleteManyArgs} args - Arguments to filter App_users to delete.
      * @example
-     * // Delete a few Employees
-     * const { count } = await prisma.employee.deleteMany({
+     * // Delete a few App_users
+     * const { count } = await prisma.app_user.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends employeeDeleteManyArgs>(args?: SelectSubset<T, employeeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends app_userDeleteManyArgs>(args?: SelectSubset<T, app_userDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Employees.
+     * Update zero or more App_users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {employeeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {app_userUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Employees
-     * const employee = await prisma.employee.updateMany({
+     * // Update many App_users
+     * const app_user = await prisma.app_user.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -21455,14 +21315,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends employeeUpdateManyArgs>(args: SelectSubset<T, employeeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends app_userUpdateManyArgs>(args: SelectSubset<T, app_userUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Employees and returns the data updated in the database.
-     * @param {employeeUpdateManyAndReturnArgs} args - Arguments to update many Employees.
+     * Update zero or more App_users and returns the data updated in the database.
+     * @param {app_userUpdateManyAndReturnArgs} args - Arguments to update many App_users.
      * @example
-     * // Update many Employees
-     * const employee = await prisma.employee.updateManyAndReturn({
+     * // Update many App_users
+     * const app_user = await prisma.app_user.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -21471,8 +21331,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Employees and only return the `id`
-     * const employeeWithIdOnly = await prisma.employee.updateManyAndReturn({
+     * // Update zero or more App_users and only return the `id`
+     * const app_userWithIdOnly = await prisma.app_user.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -21485,56 +21345,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends employeeUpdateManyAndReturnArgs>(args: SelectSubset<T, employeeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employeePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends app_userUpdateManyAndReturnArgs>(args: SelectSubset<T, app_userUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Employee.
-     * @param {employeeUpsertArgs} args - Arguments to update or create a Employee.
+     * Create or update one App_user.
+     * @param {app_userUpsertArgs} args - Arguments to update or create a App_user.
      * @example
-     * // Update or create a Employee
-     * const employee = await prisma.employee.upsert({
+     * // Update or create a App_user
+     * const app_user = await prisma.app_user.upsert({
      *   create: {
-     *     // ... data to create a Employee
+     *     // ... data to create a App_user
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Employee we want to update
+     *     // ... the filter for the App_user we want to update
      *   }
      * })
      */
-    upsert<T extends employeeUpsertArgs>(args: SelectSubset<T, employeeUpsertArgs<ExtArgs>>): Prisma__employeeClient<$Result.GetResult<Prisma.$employeePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends app_userUpsertArgs>(args: SelectSubset<T, app_userUpsertArgs<ExtArgs>>): Prisma__app_userClient<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Employees.
+     * Count the number of App_users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {employeeCountArgs} args - Arguments to filter Employees to count.
+     * @param {app_userCountArgs} args - Arguments to filter App_users to count.
      * @example
-     * // Count the number of Employees
-     * const count = await prisma.employee.count({
+     * // Count the number of App_users
+     * const count = await prisma.app_user.count({
      *   where: {
-     *     // ... the filter for the Employees we want to count
+     *     // ... the filter for the App_users we want to count
      *   }
      * })
     **/
-    count<T extends employeeCountArgs>(
-      args?: Subset<T, employeeCountArgs>,
+    count<T extends app_userCountArgs>(
+      args?: Subset<T, app_userCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], EmployeeCountAggregateOutputType>
+          : GetScalarType<T['select'], App_userCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Employee.
+     * Allows you to perform aggregations operations on a App_user.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmployeeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {App_userAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -21554,13 +21414,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends EmployeeAggregateArgs>(args: Subset<T, EmployeeAggregateArgs>): Prisma.PrismaPromise<GetEmployeeAggregateType<T>>
+    aggregate<T extends App_userAggregateArgs>(args: Subset<T, App_userAggregateArgs>): Prisma.PrismaPromise<GetApp_userAggregateType<T>>
 
     /**
-     * Group by Employee.
+     * Group by App_user.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {employeeGroupByArgs} args - Group by arguments.
+     * @param {app_userGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -21575,14 +21435,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends employeeGroupByArgs,
+      T extends app_userGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: employeeGroupByArgs['orderBy'] }
-        : { orderBy?: employeeGroupByArgs['orderBy'] },
+        ? { orderBy: app_userGroupByArgs['orderBy'] }
+        : { orderBy?: app_userGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -21631,22 +21491,24 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, employeeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployeeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, app_userGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetApp_userGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the employee model
+   * Fields of the app_user model
    */
-  readonly fields: employeeFieldRefs;
+  readonly fields: app_userFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for employee.
+   * The delegate class that acts as a "Promise-like" for app_user.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__employeeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__app_userClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    timesheet<T extends app_user$timesheetArgs<ExtArgs> = {}>(args?: Subset<T, app_user$timesheetArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$timesheetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    daily_summary<T extends app_user$daily_summaryArgs<ExtArgs> = {}>(args?: Subset<T, app_user$daily_summaryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$daily_summaryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -21673,1547 +21535,477 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the employee model
+   * Fields of the app_user model
    */
-  interface employeeFieldRefs {
-    readonly id: FieldRef<"employee", 'Int'>
-    readonly userId: FieldRef<"employee", 'String'>
-    readonly employeeNo: FieldRef<"employee", 'String'>
-    readonly firstName: FieldRef<"employee", 'String'>
-    readonly lastName: FieldRef<"employee", 'String'>
-    readonly position: FieldRef<"employee", 'String'>
-    readonly status: FieldRef<"employee", 'Status'>
-    readonly createdAt: FieldRef<"employee", 'DateTime'>
-    readonly updatedAt: FieldRef<"employee", 'DateTime'>
+  interface app_userFieldRefs {
+    readonly id: FieldRef<"app_user", 'Int'>
+    readonly userId: FieldRef<"app_user", 'String'>
+    readonly userNo: FieldRef<"app_user", 'String'>
+    readonly firstName: FieldRef<"app_user", 'String'>
+    readonly lastName: FieldRef<"app_user", 'String'>
+    readonly role: FieldRef<"app_user", 'UserRole'>
+    readonly status: FieldRef<"app_user", 'Status'>
+    readonly createdAt: FieldRef<"app_user", 'DateTime'>
+    readonly updatedAt: FieldRef<"app_user", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * employee findUnique
+   * app_user findUnique
    */
-  export type employeeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the app_user
      */
-    select?: employeeSelect<ExtArgs> | null
+    select?: app_userSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the app_user
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeInclude<ExtArgs> | null
+    include?: app_userInclude<ExtArgs> | null
     /**
-     * Filter, which employee to fetch.
+     * Filter, which app_user to fetch.
      */
-    where: employeeWhereUniqueInput
+    where: app_userWhereUniqueInput
   }
 
   /**
-   * employee findUniqueOrThrow
+   * app_user findUniqueOrThrow
    */
-  export type employeeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the app_user
      */
-    select?: employeeSelect<ExtArgs> | null
+    select?: app_userSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the app_user
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeInclude<ExtArgs> | null
+    include?: app_userInclude<ExtArgs> | null
     /**
-     * Filter, which employee to fetch.
+     * Filter, which app_user to fetch.
      */
-    where: employeeWhereUniqueInput
+    where: app_userWhereUniqueInput
   }
 
   /**
-   * employee findFirst
+   * app_user findFirst
    */
-  export type employeeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the app_user
      */
-    select?: employeeSelect<ExtArgs> | null
+    select?: app_userSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the app_user
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeInclude<ExtArgs> | null
+    include?: app_userInclude<ExtArgs> | null
     /**
-     * Filter, which employee to fetch.
+     * Filter, which app_user to fetch.
      */
-    where?: employeeWhereInput
+    where?: app_userWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of employees to fetch.
+     * Determine the order of app_users to fetch.
      */
-    orderBy?: employeeOrderByWithRelationInput | employeeOrderByWithRelationInput[]
+    orderBy?: app_userOrderByWithRelationInput | app_userOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for employees.
+     * Sets the position for searching for app_users.
      */
-    cursor?: employeeWhereUniqueInput
+    cursor?: app_userWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` employees from the position of the cursor.
+     * Take `±n` app_users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` employees.
+     * Skip the first `n` app_users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of employees.
+     * Filter by unique combinations of app_users.
      */
-    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+    distinct?: App_userScalarFieldEnum | App_userScalarFieldEnum[]
   }
 
   /**
-   * employee findFirstOrThrow
+   * app_user findFirstOrThrow
    */
-  export type employeeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the app_user
      */
-    select?: employeeSelect<ExtArgs> | null
+    select?: app_userSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the app_user
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeInclude<ExtArgs> | null
+    include?: app_userInclude<ExtArgs> | null
     /**
-     * Filter, which employee to fetch.
+     * Filter, which app_user to fetch.
      */
-    where?: employeeWhereInput
+    where?: app_userWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of employees to fetch.
+     * Determine the order of app_users to fetch.
      */
-    orderBy?: employeeOrderByWithRelationInput | employeeOrderByWithRelationInput[]
+    orderBy?: app_userOrderByWithRelationInput | app_userOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for employees.
+     * Sets the position for searching for app_users.
      */
-    cursor?: employeeWhereUniqueInput
+    cursor?: app_userWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` employees from the position of the cursor.
+     * Take `±n` app_users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` employees.
+     * Skip the first `n` app_users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of employees.
+     * Filter by unique combinations of app_users.
      */
-    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+    distinct?: App_userScalarFieldEnum | App_userScalarFieldEnum[]
   }
 
   /**
-   * employee findMany
+   * app_user findMany
    */
-  export type employeeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the app_user
      */
-    select?: employeeSelect<ExtArgs> | null
+    select?: app_userSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the app_user
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeInclude<ExtArgs> | null
+    include?: app_userInclude<ExtArgs> | null
     /**
-     * Filter, which employees to fetch.
+     * Filter, which app_users to fetch.
      */
-    where?: employeeWhereInput
+    where?: app_userWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of employees to fetch.
+     * Determine the order of app_users to fetch.
      */
-    orderBy?: employeeOrderByWithRelationInput | employeeOrderByWithRelationInput[]
+    orderBy?: app_userOrderByWithRelationInput | app_userOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing employees.
+     * Sets the position for listing app_users.
      */
-    cursor?: employeeWhereUniqueInput
+    cursor?: app_userWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` employees from the position of the cursor.
+     * Take `±n` app_users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` employees.
+     * Skip the first `n` app_users.
      */
     skip?: number
-    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+    distinct?: App_userScalarFieldEnum | App_userScalarFieldEnum[]
   }
 
   /**
-   * employee create
+   * app_user create
    */
-  export type employeeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the app_user
      */
-    select?: employeeSelect<ExtArgs> | null
+    select?: app_userSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the app_user
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeInclude<ExtArgs> | null
+    include?: app_userInclude<ExtArgs> | null
     /**
-     * The data needed to create a employee.
+     * The data needed to create a app_user.
      */
-    data: XOR<employeeCreateInput, employeeUncheckedCreateInput>
+    data: XOR<app_userCreateInput, app_userUncheckedCreateInput>
   }
 
   /**
-   * employee createMany
+   * app_user createMany
    */
-  export type employeeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many employees.
+     * The data used to create many app_users.
      */
-    data: employeeCreateManyInput | employeeCreateManyInput[]
+    data: app_userCreateManyInput | app_userCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * employee createManyAndReturn
+   * app_user createManyAndReturn
    */
-  export type employeeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the app_user
      */
-    select?: employeeSelectCreateManyAndReturn<ExtArgs> | null
+    select?: app_userSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the app_user
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
-     * The data used to create many employees.
+     * The data used to create many app_users.
      */
-    data: employeeCreateManyInput | employeeCreateManyInput[]
+    data: app_userCreateManyInput | app_userCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: app_userIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * employee update
+   * app_user update
    */
-  export type employeeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the app_user
      */
-    select?: employeeSelect<ExtArgs> | null
+    select?: app_userSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the app_user
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeInclude<ExtArgs> | null
+    include?: app_userInclude<ExtArgs> | null
     /**
-     * The data needed to update a employee.
+     * The data needed to update a app_user.
      */
-    data: XOR<employeeUpdateInput, employeeUncheckedUpdateInput>
+    data: XOR<app_userUpdateInput, app_userUncheckedUpdateInput>
     /**
-     * Choose, which employee to update.
+     * Choose, which app_user to update.
      */
-    where: employeeWhereUniqueInput
+    where: app_userWhereUniqueInput
   }
 
   /**
-   * employee updateMany
+   * app_user updateMany
    */
-  export type employeeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update employees.
+     * The data used to update app_users.
      */
-    data: XOR<employeeUpdateManyMutationInput, employeeUncheckedUpdateManyInput>
+    data: XOR<app_userUpdateManyMutationInput, app_userUncheckedUpdateManyInput>
     /**
-     * Filter which employees to update
+     * Filter which app_users to update
      */
-    where?: employeeWhereInput
+    where?: app_userWhereInput
     /**
-     * Limit how many employees to update.
+     * Limit how many app_users to update.
      */
     limit?: number
   }
 
   /**
-   * employee updateManyAndReturn
+   * app_user updateManyAndReturn
    */
-  export type employeeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the app_user
      */
-    select?: employeeSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: app_userSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the app_user
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
-     * The data used to update employees.
+     * The data used to update app_users.
      */
-    data: XOR<employeeUpdateManyMutationInput, employeeUncheckedUpdateManyInput>
+    data: XOR<app_userUpdateManyMutationInput, app_userUncheckedUpdateManyInput>
     /**
-     * Filter which employees to update
+     * Filter which app_users to update
      */
-    where?: employeeWhereInput
+    where?: app_userWhereInput
     /**
-     * Limit how many employees to update.
+     * Limit how many app_users to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: app_userIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * employee upsert
+   * app_user upsert
    */
-  export type employeeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the app_user
      */
-    select?: employeeSelect<ExtArgs> | null
+    select?: app_userSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the app_user
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeInclude<ExtArgs> | null
+    include?: app_userInclude<ExtArgs> | null
     /**
-     * The filter to search for the employee to update in case it exists.
+     * The filter to search for the app_user to update in case it exists.
      */
-    where: employeeWhereUniqueInput
+    where: app_userWhereUniqueInput
     /**
-     * In case the employee found by the `where` argument doesn't exist, create a new employee with this data.
+     * In case the app_user found by the `where` argument doesn't exist, create a new app_user with this data.
      */
-    create: XOR<employeeCreateInput, employeeUncheckedCreateInput>
+    create: XOR<app_userCreateInput, app_userUncheckedCreateInput>
     /**
-     * In case the employee was found with the provided `where` argument, update it with this data.
+     * In case the app_user was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<employeeUpdateInput, employeeUncheckedUpdateInput>
+    update: XOR<app_userUpdateInput, app_userUncheckedUpdateInput>
   }
 
   /**
-   * employee delete
+   * app_user delete
    */
-  export type employeeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the app_user
      */
-    select?: employeeSelect<ExtArgs> | null
+    select?: app_userSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the app_user
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeInclude<ExtArgs> | null
+    include?: app_userInclude<ExtArgs> | null
     /**
-     * Filter which employee to delete.
+     * Filter which app_user to delete.
      */
-    where: employeeWhereUniqueInput
+    where: app_userWhereUniqueInput
   }
 
   /**
-   * employee deleteMany
+   * app_user deleteMany
    */
-  export type employeeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which employees to delete
+     * Filter which app_users to delete
      */
-    where?: employeeWhereInput
+    where?: app_userWhereInput
     /**
-     * Limit how many employees to delete.
+     * Limit how many app_users to delete.
      */
     limit?: number
   }
 
   /**
-   * employee without action
+   * app_user.timesheet
    */
-  export type employeeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_user$timesheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the employee
+     * Select specific fields to fetch from the timesheet
      */
-    select?: employeeSelect<ExtArgs> | null
+    select?: timesheetSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the employee
+     * Omit specific fields from the timesheet
      */
-    omit?: employeeOmit<ExtArgs> | null
+    omit?: timesheetOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: employeeInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model admin
-   */
-
-  export type AggregateAdmin = {
-    _count: AdminCountAggregateOutputType | null
-    _avg: AdminAvgAggregateOutputType | null
-    _sum: AdminSumAggregateOutputType | null
-    _min: AdminMinAggregateOutputType | null
-    _max: AdminMaxAggregateOutputType | null
-  }
-
-  export type AdminAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type AdminSumAggregateOutputType = {
-    id: number | null
-  }
-
-  export type AdminMinAggregateOutputType = {
-    id: number | null
-    userId: string | null
-    adminNo: string | null
-    firstName: string | null
-    lastName: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type AdminMaxAggregateOutputType = {
-    id: number | null
-    userId: string | null
-    adminNo: string | null
-    firstName: string | null
-    lastName: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type AdminCountAggregateOutputType = {
-    id: number
-    userId: number
-    adminNo: number
-    firstName: number
-    lastName: number
-    createdAt: number
-    updatedAt: number
-    _all: number
-  }
-
-
-  export type AdminAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type AdminSumAggregateInputType = {
-    id?: true
-  }
-
-  export type AdminMinAggregateInputType = {
-    id?: true
-    userId?: true
-    adminNo?: true
-    firstName?: true
-    lastName?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type AdminMaxAggregateInputType = {
-    id?: true
-    userId?: true
-    adminNo?: true
-    firstName?: true
-    lastName?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type AdminCountAggregateInputType = {
-    id?: true
-    userId?: true
-    adminNo?: true
-    firstName?: true
-    lastName?: true
-    createdAt?: true
-    updatedAt?: true
-    _all?: true
-  }
-
-  export type AdminAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which admin to aggregate.
-     */
-    where?: adminWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of admins to fetch.
-     */
-    orderBy?: adminOrderByWithRelationInput | adminOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: adminWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` admins from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` admins.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned admins
-    **/
-    _count?: true | AdminCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: AdminAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: AdminSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: AdminMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: AdminMaxAggregateInputType
-  }
-
-  export type GetAdminAggregateType<T extends AdminAggregateArgs> = {
-        [P in keyof T & keyof AggregateAdmin]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateAdmin[P]>
-      : GetScalarType<T[P], AggregateAdmin[P]>
-  }
-
-
-
-
-  export type adminGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: adminWhereInput
-    orderBy?: adminOrderByWithAggregationInput | adminOrderByWithAggregationInput[]
-    by: AdminScalarFieldEnum[] | AdminScalarFieldEnum
-    having?: adminScalarWhereWithAggregatesInput
+    include?: timesheetInclude<ExtArgs> | null
+    where?: timesheetWhereInput
+    orderBy?: timesheetOrderByWithRelationInput | timesheetOrderByWithRelationInput[]
+    cursor?: timesheetWhereUniqueInput
     take?: number
     skip?: number
-    _count?: AdminCountAggregateInputType | true
-    _avg?: AdminAvgAggregateInputType
-    _sum?: AdminSumAggregateInputType
-    _min?: AdminMinAggregateInputType
-    _max?: AdminMaxAggregateInputType
-  }
-
-  export type AdminGroupByOutputType = {
-    id: number
-    userId: string
-    adminNo: string
-    firstName: string
-    lastName: string
-    createdAt: Date
-    updatedAt: Date
-    _count: AdminCountAggregateOutputType | null
-    _avg: AdminAvgAggregateOutputType | null
-    _sum: AdminSumAggregateOutputType | null
-    _min: AdminMinAggregateOutputType | null
-    _max: AdminMaxAggregateOutputType | null
-  }
-
-  type GetAdminGroupByPayload<T extends adminGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<AdminGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof AdminGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], AdminGroupByOutputType[P]>
-            : GetScalarType<T[P], AdminGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type adminSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    adminNo?: boolean
-    firstName?: boolean
-    lastName?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["admin"]>
-
-  export type adminSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    adminNo?: boolean
-    firstName?: boolean
-    lastName?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["admin"]>
-
-  export type adminSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    adminNo?: boolean
-    firstName?: boolean
-    lastName?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["admin"]>
-
-  export type adminSelectScalar = {
-    id?: boolean
-    userId?: boolean
-    adminNo?: boolean
-    firstName?: boolean
-    lastName?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }
-
-  export type adminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "adminNo" | "firstName" | "lastName" | "createdAt" | "updatedAt", ExtArgs["result"]["admin"]>
-  export type adminInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type adminIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type adminIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }
-
-  export type $adminPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "admin"
-    objects: {
-      user: Prisma.$UserPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      userId: string
-      adminNo: string
-      firstName: string
-      lastName: string
-      createdAt: Date
-      updatedAt: Date
-    }, ExtArgs["result"]["admin"]>
-    composites: {}
-  }
-
-  type adminGetPayload<S extends boolean | null | undefined | adminDefaultArgs> = $Result.GetResult<Prisma.$adminPayload, S>
-
-  type adminCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<adminFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: AdminCountAggregateInputType | true
-    }
-
-  export interface adminDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['admin'], meta: { name: 'admin' } }
-    /**
-     * Find zero or one Admin that matches the filter.
-     * @param {adminFindUniqueArgs} args - Arguments to find a Admin
-     * @example
-     * // Get one Admin
-     * const admin = await prisma.admin.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends adminFindUniqueArgs>(args: SelectSubset<T, adminFindUniqueArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Admin that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {adminFindUniqueOrThrowArgs} args - Arguments to find a Admin
-     * @example
-     * // Get one Admin
-     * const admin = await prisma.admin.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends adminFindUniqueOrThrowArgs>(args: SelectSubset<T, adminFindUniqueOrThrowArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Admin that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {adminFindFirstArgs} args - Arguments to find a Admin
-     * @example
-     * // Get one Admin
-     * const admin = await prisma.admin.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends adminFindFirstArgs>(args?: SelectSubset<T, adminFindFirstArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Admin that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {adminFindFirstOrThrowArgs} args - Arguments to find a Admin
-     * @example
-     * // Get one Admin
-     * const admin = await prisma.admin.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends adminFindFirstOrThrowArgs>(args?: SelectSubset<T, adminFindFirstOrThrowArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Admins that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {adminFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Admins
-     * const admins = await prisma.admin.findMany()
-     * 
-     * // Get first 10 Admins
-     * const admins = await prisma.admin.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const adminWithIdOnly = await prisma.admin.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends adminFindManyArgs>(args?: SelectSubset<T, adminFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Admin.
-     * @param {adminCreateArgs} args - Arguments to create a Admin.
-     * @example
-     * // Create one Admin
-     * const Admin = await prisma.admin.create({
-     *   data: {
-     *     // ... data to create a Admin
-     *   }
-     * })
-     * 
-     */
-    create<T extends adminCreateArgs>(args: SelectSubset<T, adminCreateArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Admins.
-     * @param {adminCreateManyArgs} args - Arguments to create many Admins.
-     * @example
-     * // Create many Admins
-     * const admin = await prisma.admin.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends adminCreateManyArgs>(args?: SelectSubset<T, adminCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Admins and returns the data saved in the database.
-     * @param {adminCreateManyAndReturnArgs} args - Arguments to create many Admins.
-     * @example
-     * // Create many Admins
-     * const admin = await prisma.admin.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Admins and only return the `id`
-     * const adminWithIdOnly = await prisma.admin.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends adminCreateManyAndReturnArgs>(args?: SelectSubset<T, adminCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Admin.
-     * @param {adminDeleteArgs} args - Arguments to delete one Admin.
-     * @example
-     * // Delete one Admin
-     * const Admin = await prisma.admin.delete({
-     *   where: {
-     *     // ... filter to delete one Admin
-     *   }
-     * })
-     * 
-     */
-    delete<T extends adminDeleteArgs>(args: SelectSubset<T, adminDeleteArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Admin.
-     * @param {adminUpdateArgs} args - Arguments to update one Admin.
-     * @example
-     * // Update one Admin
-     * const admin = await prisma.admin.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends adminUpdateArgs>(args: SelectSubset<T, adminUpdateArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Admins.
-     * @param {adminDeleteManyArgs} args - Arguments to filter Admins to delete.
-     * @example
-     * // Delete a few Admins
-     * const { count } = await prisma.admin.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends adminDeleteManyArgs>(args?: SelectSubset<T, adminDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Admins.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {adminUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Admins
-     * const admin = await prisma.admin.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends adminUpdateManyArgs>(args: SelectSubset<T, adminUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Admins and returns the data updated in the database.
-     * @param {adminUpdateManyAndReturnArgs} args - Arguments to update many Admins.
-     * @example
-     * // Update many Admins
-     * const admin = await prisma.admin.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Admins and only return the `id`
-     * const adminWithIdOnly = await prisma.admin.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends adminUpdateManyAndReturnArgs>(args: SelectSubset<T, adminUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Admin.
-     * @param {adminUpsertArgs} args - Arguments to update or create a Admin.
-     * @example
-     * // Update or create a Admin
-     * const admin = await prisma.admin.upsert({
-     *   create: {
-     *     // ... data to create a Admin
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Admin we want to update
-     *   }
-     * })
-     */
-    upsert<T extends adminUpsertArgs>(args: SelectSubset<T, adminUpsertArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Admins.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {adminCountArgs} args - Arguments to filter Admins to count.
-     * @example
-     * // Count the number of Admins
-     * const count = await prisma.admin.count({
-     *   where: {
-     *     // ... the filter for the Admins we want to count
-     *   }
-     * })
-    **/
-    count<T extends adminCountArgs>(
-      args?: Subset<T, adminCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], AdminCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Admin.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdminAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends AdminAggregateArgs>(args: Subset<T, AdminAggregateArgs>): Prisma.PrismaPromise<GetAdminAggregateType<T>>
-
-    /**
-     * Group by Admin.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {adminGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends adminGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: adminGroupByArgs['orderBy'] }
-        : { orderBy?: adminGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, adminGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdminGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the admin model
-   */
-  readonly fields: adminFieldRefs;
+    distinct?: TimesheetScalarFieldEnum | TimesheetScalarFieldEnum[]
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for admin.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
+   * app_user.daily_summary
    */
-  export interface Prisma__adminClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  export type app_user$daily_summaryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
+     * Select specific fields to fetch from the daily_summary
      */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    select?: daily_summarySelect<ExtArgs> | null
     /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
+     * Omit specific fields from the daily_summary
      */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the admin model
-   */
-  interface adminFieldRefs {
-    readonly id: FieldRef<"admin", 'Int'>
-    readonly userId: FieldRef<"admin", 'String'>
-    readonly adminNo: FieldRef<"admin", 'String'>
-    readonly firstName: FieldRef<"admin", 'String'>
-    readonly lastName: FieldRef<"admin", 'String'>
-    readonly createdAt: FieldRef<"admin", 'DateTime'>
-    readonly updatedAt: FieldRef<"admin", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * admin findUnique
-   */
-  export type adminFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the admin
-     */
-    select?: adminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the admin
-     */
-    omit?: adminOmit<ExtArgs> | null
+    omit?: daily_summaryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: adminInclude<ExtArgs> | null
-    /**
-     * Filter, which admin to fetch.
-     */
-    where: adminWhereUniqueInput
-  }
-
-  /**
-   * admin findUniqueOrThrow
-   */
-  export type adminFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the admin
-     */
-    select?: adminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the admin
-     */
-    omit?: adminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: adminInclude<ExtArgs> | null
-    /**
-     * Filter, which admin to fetch.
-     */
-    where: adminWhereUniqueInput
-  }
-
-  /**
-   * admin findFirst
-   */
-  export type adminFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the admin
-     */
-    select?: adminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the admin
-     */
-    omit?: adminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: adminInclude<ExtArgs> | null
-    /**
-     * Filter, which admin to fetch.
-     */
-    where?: adminWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of admins to fetch.
-     */
-    orderBy?: adminOrderByWithRelationInput | adminOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for admins.
-     */
-    cursor?: adminWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` admins from the position of the cursor.
-     */
+    include?: daily_summaryInclude<ExtArgs> | null
+    where?: daily_summaryWhereInput
+    orderBy?: daily_summaryOrderByWithRelationInput | daily_summaryOrderByWithRelationInput[]
+    cursor?: daily_summaryWhereUniqueInput
     take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` admins.
-     */
     skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of admins.
-     */
-    distinct?: AdminScalarFieldEnum | AdminScalarFieldEnum[]
+    distinct?: Daily_summaryScalarFieldEnum | Daily_summaryScalarFieldEnum[]
   }
 
   /**
-   * admin findFirstOrThrow
+   * app_user without action
    */
-  export type adminFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type app_userDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the admin
+     * Select specific fields to fetch from the app_user
      */
-    select?: adminSelect<ExtArgs> | null
+    select?: app_userSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the admin
+     * Omit specific fields from the app_user
      */
-    omit?: adminOmit<ExtArgs> | null
+    omit?: app_userOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: adminInclude<ExtArgs> | null
-    /**
-     * Filter, which admin to fetch.
-     */
-    where?: adminWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of admins to fetch.
-     */
-    orderBy?: adminOrderByWithRelationInput | adminOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for admins.
-     */
-    cursor?: adminWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` admins from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` admins.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of admins.
-     */
-    distinct?: AdminScalarFieldEnum | AdminScalarFieldEnum[]
-  }
-
-  /**
-   * admin findMany
-   */
-  export type adminFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the admin
-     */
-    select?: adminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the admin
-     */
-    omit?: adminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: adminInclude<ExtArgs> | null
-    /**
-     * Filter, which admins to fetch.
-     */
-    where?: adminWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of admins to fetch.
-     */
-    orderBy?: adminOrderByWithRelationInput | adminOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing admins.
-     */
-    cursor?: adminWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` admins from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` admins.
-     */
-    skip?: number
-    distinct?: AdminScalarFieldEnum | AdminScalarFieldEnum[]
-  }
-
-  /**
-   * admin create
-   */
-  export type adminCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the admin
-     */
-    select?: adminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the admin
-     */
-    omit?: adminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: adminInclude<ExtArgs> | null
-    /**
-     * The data needed to create a admin.
-     */
-    data: XOR<adminCreateInput, adminUncheckedCreateInput>
-  }
-
-  /**
-   * admin createMany
-   */
-  export type adminCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many admins.
-     */
-    data: adminCreateManyInput | adminCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * admin createManyAndReturn
-   */
-  export type adminCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the admin
-     */
-    select?: adminSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the admin
-     */
-    omit?: adminOmit<ExtArgs> | null
-    /**
-     * The data used to create many admins.
-     */
-    data: adminCreateManyInput | adminCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: adminIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * admin update
-   */
-  export type adminUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the admin
-     */
-    select?: adminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the admin
-     */
-    omit?: adminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: adminInclude<ExtArgs> | null
-    /**
-     * The data needed to update a admin.
-     */
-    data: XOR<adminUpdateInput, adminUncheckedUpdateInput>
-    /**
-     * Choose, which admin to update.
-     */
-    where: adminWhereUniqueInput
-  }
-
-  /**
-   * admin updateMany
-   */
-  export type adminUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update admins.
-     */
-    data: XOR<adminUpdateManyMutationInput, adminUncheckedUpdateManyInput>
-    /**
-     * Filter which admins to update
-     */
-    where?: adminWhereInput
-    /**
-     * Limit how many admins to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * admin updateManyAndReturn
-   */
-  export type adminUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the admin
-     */
-    select?: adminSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the admin
-     */
-    omit?: adminOmit<ExtArgs> | null
-    /**
-     * The data used to update admins.
-     */
-    data: XOR<adminUpdateManyMutationInput, adminUncheckedUpdateManyInput>
-    /**
-     * Filter which admins to update
-     */
-    where?: adminWhereInput
-    /**
-     * Limit how many admins to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: adminIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * admin upsert
-   */
-  export type adminUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the admin
-     */
-    select?: adminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the admin
-     */
-    omit?: adminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: adminInclude<ExtArgs> | null
-    /**
-     * The filter to search for the admin to update in case it exists.
-     */
-    where: adminWhereUniqueInput
-    /**
-     * In case the admin found by the `where` argument doesn't exist, create a new admin with this data.
-     */
-    create: XOR<adminCreateInput, adminUncheckedCreateInput>
-    /**
-     * In case the admin was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<adminUpdateInput, adminUncheckedUpdateInput>
-  }
-
-  /**
-   * admin delete
-   */
-  export type adminDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the admin
-     */
-    select?: adminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the admin
-     */
-    omit?: adminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: adminInclude<ExtArgs> | null
-    /**
-     * Filter which admin to delete.
-     */
-    where: adminWhereUniqueInput
-  }
-
-  /**
-   * admin deleteMany
-   */
-  export type adminDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which admins to delete
-     */
-    where?: adminWhereInput
-    /**
-     * Limit how many admins to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * admin without action
-   */
-  export type adminDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the admin
-     */
-    select?: adminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the admin
-     */
-    omit?: adminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: adminInclude<ExtArgs> | null
+    include?: app_userInclude<ExtArgs> | null
   }
 
 
@@ -23231,15 +22023,17 @@ export namespace Prisma {
 
   export type TimesheetAvgAggregateOutputType = {
     id: number | null
+    userId: number | null
   }
 
   export type TimesheetSumAggregateOutputType = {
     id: number | null
+    userId: number | null
   }
 
   export type TimesheetMinAggregateOutputType = {
     id: number | null
-    userId: string | null
+    userId: number | null
     time: Date | null
     type: $Enums.TimesheetType | null
     createdAt: Date | null
@@ -23248,7 +22042,7 @@ export namespace Prisma {
 
   export type TimesheetMaxAggregateOutputType = {
     id: number | null
-    userId: string | null
+    userId: number | null
     time: Date | null
     type: $Enums.TimesheetType | null
     createdAt: Date | null
@@ -23268,10 +22062,12 @@ export namespace Prisma {
 
   export type TimesheetAvgAggregateInputType = {
     id?: true
+    userId?: true
   }
 
   export type TimesheetSumAggregateInputType = {
     id?: true
+    userId?: true
   }
 
   export type TimesheetMinAggregateInputType = {
@@ -23390,7 +22186,7 @@ export namespace Prisma {
 
   export type TimesheetGroupByOutputType = {
     id: number
-    userId: string
+    userId: number
     time: Date
     type: $Enums.TimesheetType
     createdAt: Date
@@ -23423,7 +22219,7 @@ export namespace Prisma {
     type?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | app_userDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["timesheet"]>
 
   export type timesheetSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -23433,7 +22229,7 @@ export namespace Prisma {
     type?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | app_userDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["timesheet"]>
 
   export type timesheetSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -23443,7 +22239,7 @@ export namespace Prisma {
     type?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | app_userDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["timesheet"]>
 
   export type timesheetSelectScalar = {
@@ -23457,23 +22253,23 @@ export namespace Prisma {
 
   export type timesheetOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "time" | "type" | "createdAt" | "updatedAt", ExtArgs["result"]["timesheet"]>
   export type timesheetInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | app_userDefaultArgs<ExtArgs>
   }
   export type timesheetIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | app_userDefaultArgs<ExtArgs>
   }
   export type timesheetIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | app_userDefaultArgs<ExtArgs>
   }
 
   export type $timesheetPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "timesheet"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
+      user: Prisma.$app_userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      userId: string
+      userId: number
       time: Date
       type: $Enums.TimesheetType
       createdAt: Date
@@ -23872,7 +22668,7 @@ export namespace Prisma {
    */
   export interface Prisma__timesheetClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends app_userDefaultArgs<ExtArgs> = {}>(args?: Subset<T, app_userDefaultArgs<ExtArgs>>): Prisma__app_userClient<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -23903,7 +22699,7 @@ export namespace Prisma {
    */
   interface timesheetFieldRefs {
     readonly id: FieldRef<"timesheet", 'Int'>
-    readonly userId: FieldRef<"timesheet", 'String'>
+    readonly userId: FieldRef<"timesheet", 'Int'>
     readonly time: FieldRef<"timesheet", 'DateTime'>
     readonly type: FieldRef<"timesheet", 'TimesheetType'>
     readonly createdAt: FieldRef<"timesheet", 'DateTime'>
@@ -24336,17 +23132,19 @@ export namespace Prisma {
 
   export type Daily_summaryAvgAggregateOutputType = {
     id: number | null
+    userId: number | null
     totalTime: number | null
   }
 
   export type Daily_summarySumAggregateOutputType = {
     id: number | null
+    userId: number | null
     totalTime: number | null
   }
 
   export type Daily_summaryMinAggregateOutputType = {
     id: number | null
-    userId: string | null
+    userId: number | null
     date: Date | null
     totalTime: number | null
     createdAt: Date | null
@@ -24355,7 +23153,7 @@ export namespace Prisma {
 
   export type Daily_summaryMaxAggregateOutputType = {
     id: number | null
-    userId: string | null
+    userId: number | null
     date: Date | null
     totalTime: number | null
     createdAt: Date | null
@@ -24375,11 +23173,13 @@ export namespace Prisma {
 
   export type Daily_summaryAvgAggregateInputType = {
     id?: true
+    userId?: true
     totalTime?: true
   }
 
   export type Daily_summarySumAggregateInputType = {
     id?: true
+    userId?: true
     totalTime?: true
   }
 
@@ -24499,7 +23299,7 @@ export namespace Prisma {
 
   export type Daily_summaryGroupByOutputType = {
     id: number
-    userId: string
+    userId: number
     date: Date
     totalTime: number
     createdAt: Date
@@ -24532,7 +23332,7 @@ export namespace Prisma {
     totalTime?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | app_userDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["daily_summary"]>
 
   export type daily_summarySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -24542,7 +23342,7 @@ export namespace Prisma {
     totalTime?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | app_userDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["daily_summary"]>
 
   export type daily_summarySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -24552,7 +23352,7 @@ export namespace Prisma {
     totalTime?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | app_userDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["daily_summary"]>
 
   export type daily_summarySelectScalar = {
@@ -24566,23 +23366,23 @@ export namespace Prisma {
 
   export type daily_summaryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "date" | "totalTime" | "createdAt" | "updatedAt", ExtArgs["result"]["daily_summary"]>
   export type daily_summaryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | app_userDefaultArgs<ExtArgs>
   }
   export type daily_summaryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | app_userDefaultArgs<ExtArgs>
   }
   export type daily_summaryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | app_userDefaultArgs<ExtArgs>
   }
 
   export type $daily_summaryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "daily_summary"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
+      user: Prisma.$app_userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      userId: string
+      userId: number
       date: Date
       totalTime: number
       createdAt: Date
@@ -24981,7 +23781,7 @@ export namespace Prisma {
    */
   export interface Prisma__daily_summaryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends app_userDefaultArgs<ExtArgs> = {}>(args?: Subset<T, app_userDefaultArgs<ExtArgs>>): Prisma__app_userClient<$Result.GetResult<Prisma.$app_userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -25012,7 +23812,7 @@ export namespace Prisma {
    */
   interface daily_summaryFieldRefs {
     readonly id: FieldRef<"daily_summary", 'Int'>
-    readonly userId: FieldRef<"daily_summary", 'String'>
+    readonly userId: FieldRef<"daily_summary", 'Int'>
     readonly date: FieldRef<"daily_summary", 'DateTime'>
     readonly totalTime: FieldRef<"daily_summary", 'Int'>
     readonly createdAt: FieldRef<"daily_summary", 'DateTime'>
@@ -25685,32 +24485,19 @@ export namespace Prisma {
   export type Sso_providersScalarFieldEnum = (typeof Sso_providersScalarFieldEnum)[keyof typeof Sso_providersScalarFieldEnum]
 
 
-  export const EmployeeScalarFieldEnum: {
+  export const App_userScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    employeeNo: 'employeeNo',
+    userNo: 'userNo',
     firstName: 'firstName',
     lastName: 'lastName',
-    position: 'position',
+    role: 'role',
     status: 'status',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
-  export type EmployeeScalarFieldEnum = (typeof EmployeeScalarFieldEnum)[keyof typeof EmployeeScalarFieldEnum]
-
-
-  export const AdminScalarFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    adminNo: 'adminNo',
-    firstName: 'firstName',
-    lastName: 'lastName',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
-  };
-
-  export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
+  export type App_userScalarFieldEnum = (typeof App_userScalarFieldEnum)[keyof typeof App_userScalarFieldEnum]
 
 
   export const TimesheetScalarFieldEnum: {
@@ -25938,6 +24725,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'UserRole'
+   */
+  export type EnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserRole'>
+    
+
+
+  /**
+   * Reference to a field of type 'UserRole[]'
+   */
+  export type ListEnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserRole[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Status'
    */
   export type EnumStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Status'>
@@ -26025,10 +24826,7 @@ export namespace Prisma {
     mfa_factors?: Mfa_factorsListRelationFilter
     one_time_tokens?: One_time_tokensListRelationFilter
     sessions?: SessionsListRelationFilter
-    employee?: XOR<EmployeeNullableScalarRelationFilter, employeeWhereInput> | null
-    admin?: XOR<AdminNullableScalarRelationFilter, adminWhereInput> | null
-    timesheets?: TimesheetListRelationFilter
-    dailySummaries?: Daily_summaryListRelationFilter
+    user?: XOR<App_userNullableScalarRelationFilter, app_userWhereInput> | null
   }
 
   export type UserOrderByWithRelationInput = {
@@ -26071,10 +24869,7 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsOrderByRelationAggregateInput
     one_time_tokens?: one_time_tokensOrderByRelationAggregateInput
     sessions?: sessionsOrderByRelationAggregateInput
-    employee?: employeeOrderByWithRelationInput
-    admin?: adminOrderByWithRelationInput
-    timesheets?: timesheetOrderByRelationAggregateInput
-    dailySummaries?: daily_summaryOrderByRelationAggregateInput
+    user?: app_userOrderByWithRelationInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -26120,10 +24915,7 @@ export namespace Prisma {
     mfa_factors?: Mfa_factorsListRelationFilter
     one_time_tokens?: One_time_tokensListRelationFilter
     sessions?: SessionsListRelationFilter
-    employee?: XOR<EmployeeNullableScalarRelationFilter, employeeWhereInput> | null
-    admin?: XOR<AdminNullableScalarRelationFilter, adminWhereInput> | null
-    timesheets?: TimesheetListRelationFilter
-    dailySummaries?: Daily_summaryListRelationFilter
+    user?: XOR<App_userNullableScalarRelationFilter, app_userWhereInput> | null
   }, "id" | "phone">
 
   export type UserOrderByWithAggregationInput = {
@@ -27220,148 +26012,87 @@ export namespace Prisma {
     updated_at?: DateTimeNullableWithAggregatesFilter<"sso_providers"> | Date | string | null
   }
 
-  export type employeeWhereInput = {
-    AND?: employeeWhereInput | employeeWhereInput[]
-    OR?: employeeWhereInput[]
-    NOT?: employeeWhereInput | employeeWhereInput[]
-    id?: IntFilter<"employee"> | number
-    userId?: UuidFilter<"employee"> | string
-    employeeNo?: StringFilter<"employee"> | string
-    firstName?: StringFilter<"employee"> | string
-    lastName?: StringFilter<"employee"> | string
-    position?: StringFilter<"employee"> | string
-    status?: EnumStatusFilter<"employee"> | $Enums.Status
-    createdAt?: DateTimeFilter<"employee"> | Date | string
-    updatedAt?: DateTimeFilter<"employee"> | Date | string
+  export type app_userWhereInput = {
+    AND?: app_userWhereInput | app_userWhereInput[]
+    OR?: app_userWhereInput[]
+    NOT?: app_userWhereInput | app_userWhereInput[]
+    id?: IntFilter<"app_user"> | number
+    userId?: UuidFilter<"app_user"> | string
+    userNo?: StringFilter<"app_user"> | string
+    firstName?: StringFilter<"app_user"> | string
+    lastName?: StringFilter<"app_user"> | string
+    role?: EnumUserRoleFilter<"app_user"> | $Enums.UserRole
+    status?: EnumStatusFilter<"app_user"> | $Enums.Status
+    createdAt?: DateTimeFilter<"app_user"> | Date | string
+    updatedAt?: DateTimeFilter<"app_user"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    timesheet?: TimesheetListRelationFilter
+    daily_summary?: Daily_summaryListRelationFilter
   }
 
-  export type employeeOrderByWithRelationInput = {
+  export type app_userOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
-    employeeNo?: SortOrder
+    userNo?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
-    position?: SortOrder
+    role?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
+    timesheet?: timesheetOrderByRelationAggregateInput
+    daily_summary?: daily_summaryOrderByRelationAggregateInput
   }
 
-  export type employeeWhereUniqueInput = Prisma.AtLeast<{
+  export type app_userWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     userId?: string
-    employeeNo?: string
-    AND?: employeeWhereInput | employeeWhereInput[]
-    OR?: employeeWhereInput[]
-    NOT?: employeeWhereInput | employeeWhereInput[]
-    firstName?: StringFilter<"employee"> | string
-    lastName?: StringFilter<"employee"> | string
-    position?: StringFilter<"employee"> | string
-    status?: EnumStatusFilter<"employee"> | $Enums.Status
-    createdAt?: DateTimeFilter<"employee"> | Date | string
-    updatedAt?: DateTimeFilter<"employee"> | Date | string
+    userNo?: string
+    AND?: app_userWhereInput | app_userWhereInput[]
+    OR?: app_userWhereInput[]
+    NOT?: app_userWhereInput | app_userWhereInput[]
+    firstName?: StringFilter<"app_user"> | string
+    lastName?: StringFilter<"app_user"> | string
+    role?: EnumUserRoleFilter<"app_user"> | $Enums.UserRole
+    status?: EnumStatusFilter<"app_user"> | $Enums.Status
+    createdAt?: DateTimeFilter<"app_user"> | Date | string
+    updatedAt?: DateTimeFilter<"app_user"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id" | "userId" | "employeeNo">
+    timesheet?: TimesheetListRelationFilter
+    daily_summary?: Daily_summaryListRelationFilter
+  }, "id" | "userId" | "userNo">
 
-  export type employeeOrderByWithAggregationInput = {
+  export type app_userOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
-    employeeNo?: SortOrder
+    userNo?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
-    position?: SortOrder
+    role?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: employeeCountOrderByAggregateInput
-    _avg?: employeeAvgOrderByAggregateInput
-    _max?: employeeMaxOrderByAggregateInput
-    _min?: employeeMinOrderByAggregateInput
-    _sum?: employeeSumOrderByAggregateInput
+    _count?: app_userCountOrderByAggregateInput
+    _avg?: app_userAvgOrderByAggregateInput
+    _max?: app_userMaxOrderByAggregateInput
+    _min?: app_userMinOrderByAggregateInput
+    _sum?: app_userSumOrderByAggregateInput
   }
 
-  export type employeeScalarWhereWithAggregatesInput = {
-    AND?: employeeScalarWhereWithAggregatesInput | employeeScalarWhereWithAggregatesInput[]
-    OR?: employeeScalarWhereWithAggregatesInput[]
-    NOT?: employeeScalarWhereWithAggregatesInput | employeeScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"employee"> | number
-    userId?: UuidWithAggregatesFilter<"employee"> | string
-    employeeNo?: StringWithAggregatesFilter<"employee"> | string
-    firstName?: StringWithAggregatesFilter<"employee"> | string
-    lastName?: StringWithAggregatesFilter<"employee"> | string
-    position?: StringWithAggregatesFilter<"employee"> | string
-    status?: EnumStatusWithAggregatesFilter<"employee"> | $Enums.Status
-    createdAt?: DateTimeWithAggregatesFilter<"employee"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"employee"> | Date | string
-  }
-
-  export type adminWhereInput = {
-    AND?: adminWhereInput | adminWhereInput[]
-    OR?: adminWhereInput[]
-    NOT?: adminWhereInput | adminWhereInput[]
-    id?: IntFilter<"admin"> | number
-    userId?: UuidFilter<"admin"> | string
-    adminNo?: StringFilter<"admin"> | string
-    firstName?: StringFilter<"admin"> | string
-    lastName?: StringFilter<"admin"> | string
-    createdAt?: DateTimeFilter<"admin"> | Date | string
-    updatedAt?: DateTimeFilter<"admin"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }
-
-  export type adminOrderByWithRelationInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    adminNo?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
-  }
-
-  export type adminWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    userId?: string
-    adminNo?: string
-    AND?: adminWhereInput | adminWhereInput[]
-    OR?: adminWhereInput[]
-    NOT?: adminWhereInput | adminWhereInput[]
-    firstName?: StringFilter<"admin"> | string
-    lastName?: StringFilter<"admin"> | string
-    createdAt?: DateTimeFilter<"admin"> | Date | string
-    updatedAt?: DateTimeFilter<"admin"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id" | "userId" | "adminNo">
-
-  export type adminOrderByWithAggregationInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    adminNo?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    _count?: adminCountOrderByAggregateInput
-    _avg?: adminAvgOrderByAggregateInput
-    _max?: adminMaxOrderByAggregateInput
-    _min?: adminMinOrderByAggregateInput
-    _sum?: adminSumOrderByAggregateInput
-  }
-
-  export type adminScalarWhereWithAggregatesInput = {
-    AND?: adminScalarWhereWithAggregatesInput | adminScalarWhereWithAggregatesInput[]
-    OR?: adminScalarWhereWithAggregatesInput[]
-    NOT?: adminScalarWhereWithAggregatesInput | adminScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"admin"> | number
-    userId?: UuidWithAggregatesFilter<"admin"> | string
-    adminNo?: StringWithAggregatesFilter<"admin"> | string
-    firstName?: StringWithAggregatesFilter<"admin"> | string
-    lastName?: StringWithAggregatesFilter<"admin"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"admin"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"admin"> | Date | string
+  export type app_userScalarWhereWithAggregatesInput = {
+    AND?: app_userScalarWhereWithAggregatesInput | app_userScalarWhereWithAggregatesInput[]
+    OR?: app_userScalarWhereWithAggregatesInput[]
+    NOT?: app_userScalarWhereWithAggregatesInput | app_userScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"app_user"> | number
+    userId?: UuidWithAggregatesFilter<"app_user"> | string
+    userNo?: StringWithAggregatesFilter<"app_user"> | string
+    firstName?: StringWithAggregatesFilter<"app_user"> | string
+    lastName?: StringWithAggregatesFilter<"app_user"> | string
+    role?: EnumUserRoleWithAggregatesFilter<"app_user"> | $Enums.UserRole
+    status?: EnumStatusWithAggregatesFilter<"app_user"> | $Enums.Status
+    createdAt?: DateTimeWithAggregatesFilter<"app_user"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"app_user"> | Date | string
   }
 
   export type timesheetWhereInput = {
@@ -27369,12 +26100,12 @@ export namespace Prisma {
     OR?: timesheetWhereInput[]
     NOT?: timesheetWhereInput | timesheetWhereInput[]
     id?: IntFilter<"timesheet"> | number
-    userId?: UuidFilter<"timesheet"> | string
+    userId?: IntFilter<"timesheet"> | number
     time?: DateTimeFilter<"timesheet"> | Date | string
     type?: EnumTimesheetTypeFilter<"timesheet"> | $Enums.TimesheetType
     createdAt?: DateTimeFilter<"timesheet"> | Date | string
     updatedAt?: DateTimeFilter<"timesheet"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    user?: XOR<App_userScalarRelationFilter, app_userWhereInput>
   }
 
   export type timesheetOrderByWithRelationInput = {
@@ -27384,7 +26115,7 @@ export namespace Prisma {
     type?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
+    user?: app_userOrderByWithRelationInput
   }
 
   export type timesheetWhereUniqueInput = Prisma.AtLeast<{
@@ -27392,12 +26123,12 @@ export namespace Prisma {
     AND?: timesheetWhereInput | timesheetWhereInput[]
     OR?: timesheetWhereInput[]
     NOT?: timesheetWhereInput | timesheetWhereInput[]
-    userId?: UuidFilter<"timesheet"> | string
+    userId?: IntFilter<"timesheet"> | number
     time?: DateTimeFilter<"timesheet"> | Date | string
     type?: EnumTimesheetTypeFilter<"timesheet"> | $Enums.TimesheetType
     createdAt?: DateTimeFilter<"timesheet"> | Date | string
     updatedAt?: DateTimeFilter<"timesheet"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    user?: XOR<App_userScalarRelationFilter, app_userWhereInput>
   }, "id">
 
   export type timesheetOrderByWithAggregationInput = {
@@ -27419,7 +26150,7 @@ export namespace Prisma {
     OR?: timesheetScalarWhereWithAggregatesInput[]
     NOT?: timesheetScalarWhereWithAggregatesInput | timesheetScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"timesheet"> | number
-    userId?: UuidWithAggregatesFilter<"timesheet"> | string
+    userId?: IntWithAggregatesFilter<"timesheet"> | number
     time?: DateTimeWithAggregatesFilter<"timesheet"> | Date | string
     type?: EnumTimesheetTypeWithAggregatesFilter<"timesheet"> | $Enums.TimesheetType
     createdAt?: DateTimeWithAggregatesFilter<"timesheet"> | Date | string
@@ -27431,12 +26162,12 @@ export namespace Prisma {
     OR?: daily_summaryWhereInput[]
     NOT?: daily_summaryWhereInput | daily_summaryWhereInput[]
     id?: IntFilter<"daily_summary"> | number
-    userId?: UuidFilter<"daily_summary"> | string
+    userId?: IntFilter<"daily_summary"> | number
     date?: DateTimeFilter<"daily_summary"> | Date | string
     totalTime?: IntFilter<"daily_summary"> | number
     createdAt?: DateTimeFilter<"daily_summary"> | Date | string
     updatedAt?: DateTimeFilter<"daily_summary"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    user?: XOR<App_userScalarRelationFilter, app_userWhereInput>
   }
 
   export type daily_summaryOrderByWithRelationInput = {
@@ -27446,7 +26177,7 @@ export namespace Prisma {
     totalTime?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
+    user?: app_userOrderByWithRelationInput
   }
 
   export type daily_summaryWhereUniqueInput = Prisma.AtLeast<{
@@ -27455,12 +26186,12 @@ export namespace Prisma {
     AND?: daily_summaryWhereInput | daily_summaryWhereInput[]
     OR?: daily_summaryWhereInput[]
     NOT?: daily_summaryWhereInput | daily_summaryWhereInput[]
-    userId?: UuidFilter<"daily_summary"> | string
+    userId?: IntFilter<"daily_summary"> | number
     date?: DateTimeFilter<"daily_summary"> | Date | string
     totalTime?: IntFilter<"daily_summary"> | number
     createdAt?: DateTimeFilter<"daily_summary"> | Date | string
     updatedAt?: DateTimeFilter<"daily_summary"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    user?: XOR<App_userScalarRelationFilter, app_userWhereInput>
   }, "id" | "userId_date">
 
   export type daily_summaryOrderByWithAggregationInput = {
@@ -27482,7 +26213,7 @@ export namespace Prisma {
     OR?: daily_summaryScalarWhereWithAggregatesInput[]
     NOT?: daily_summaryScalarWhereWithAggregatesInput | daily_summaryScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"daily_summary"> | number
-    userId?: UuidWithAggregatesFilter<"daily_summary"> | string
+    userId?: IntWithAggregatesFilter<"daily_summary"> | number
     date?: DateTimeWithAggregatesFilter<"daily_summary"> | Date | string
     totalTime?: IntWithAggregatesFilter<"daily_summary"> | number
     createdAt?: DateTimeWithAggregatesFilter<"daily_summary"> | Date | string
@@ -27529,10 +26260,7 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsCreateNestedManyWithoutUsersInput
     one_time_tokens?: one_time_tokensCreateNestedManyWithoutUsersInput
     sessions?: sessionsCreateNestedManyWithoutUsersInput
-    employee?: employeeCreateNestedOneWithoutUserInput
-    admin?: adminCreateNestedOneWithoutUserInput
-    timesheets?: timesheetCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryCreateNestedManyWithoutUserInput
+    user?: app_userCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -27575,10 +26303,7 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsUncheckedCreateNestedManyWithoutUsersInput
     one_time_tokens?: one_time_tokensUncheckedCreateNestedManyWithoutUsersInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUsersInput
-    employee?: employeeUncheckedCreateNestedOneWithoutUserInput
-    admin?: adminUncheckedCreateNestedOneWithoutUserInput
-    timesheets?: timesheetUncheckedCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryUncheckedCreateNestedManyWithoutUserInput
+    user?: app_userUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -27621,10 +26346,7 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsUpdateManyWithoutUsersNestedInput
     one_time_tokens?: one_time_tokensUpdateManyWithoutUsersNestedInput
     sessions?: sessionsUpdateManyWithoutUsersNestedInput
-    employee?: employeeUpdateOneWithoutUserNestedInput
-    admin?: adminUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUpdateManyWithoutUserNestedInput
+    user?: app_userUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -27667,10 +26389,7 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsUncheckedUpdateManyWithoutUsersNestedInput
     one_time_tokens?: one_time_tokensUncheckedUpdateManyWithoutUsersNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUsersNestedInput
-    employee?: employeeUncheckedUpdateOneWithoutUserNestedInput
-    admin?: adminUncheckedUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUncheckedUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUncheckedUpdateManyWithoutUserNestedInput
+    user?: app_userUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -28882,148 +27601,90 @@ export namespace Prisma {
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type employeeCreateInput = {
-    employeeNo: string
+  export type app_userCreateInput = {
+    userNo: string
     firstName: string
     lastName: string
-    position: string
+    role?: $Enums.UserRole
     status?: $Enums.Status
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutEmployeeInput
+    user: UserCreateNestedOneWithoutUserInput
+    timesheet?: timesheetCreateNestedManyWithoutUserInput
+    daily_summary?: daily_summaryCreateNestedManyWithoutUserInput
   }
 
-  export type employeeUncheckedCreateInput = {
+  export type app_userUncheckedCreateInput = {
     id?: number
     userId: string
-    employeeNo: string
+    userNo: string
     firstName: string
     lastName: string
-    position: string
+    role?: $Enums.UserRole
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    timesheet?: timesheetUncheckedCreateNestedManyWithoutUserInput
+    daily_summary?: daily_summaryUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type app_userUpdateInput = {
+    userNo?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutUserNestedInput
+    timesheet?: timesheetUpdateManyWithoutUserNestedInput
+    daily_summary?: daily_summaryUpdateManyWithoutUserNestedInput
+  }
+
+  export type app_userUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    userNo?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    timesheet?: timesheetUncheckedUpdateManyWithoutUserNestedInput
+    daily_summary?: daily_summaryUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type app_userCreateManyInput = {
+    id?: number
+    userId: string
+    userNo: string
+    firstName: string
+    lastName: string
+    role?: $Enums.UserRole
     status?: $Enums.Status
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type employeeUpdateInput = {
-    employeeNo?: StringFieldUpdateOperationsInput | string
+  export type app_userUpdateManyMutationInput = {
+    userNo?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
-    position?: StringFieldUpdateOperationsInput | string
-    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutEmployeeNestedInput
-  }
-
-  export type employeeUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
-    employeeNo?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    position?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type employeeCreateManyInput = {
-    id?: number
-    userId: string
-    employeeNo: string
-    firstName: string
-    lastName: string
-    position: string
-    status?: $Enums.Status
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type employeeUpdateManyMutationInput = {
-    employeeNo?: StringFieldUpdateOperationsInput | string
+  export type app_userUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    userNo?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
-    position?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type employeeUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
-    employeeNo?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    position?: StringFieldUpdateOperationsInput | string
-    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type adminCreateInput = {
-    adminNo: string
-    firstName: string
-    lastName: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutAdminInput
-  }
-
-  export type adminUncheckedCreateInput = {
-    id?: number
-    userId: string
-    adminNo: string
-    firstName: string
-    lastName: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type adminUpdateInput = {
-    adminNo?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutAdminNestedInput
-  }
-
-  export type adminUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
-    adminNo?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type adminCreateManyInput = {
-    id?: number
-    userId: string
-    adminNo: string
-    firstName: string
-    lastName: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type adminUpdateManyMutationInput = {
-    adminNo?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type adminUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
-    adminNo?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -29033,12 +27694,12 @@ export namespace Prisma {
     type: $Enums.TimesheetType
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutTimesheetsInput
+    user: app_userCreateNestedOneWithoutTimesheetInput
   }
 
   export type timesheetUncheckedCreateInput = {
     id?: number
-    userId: string
+    userId: number
     time: Date | string
     type: $Enums.TimesheetType
     createdAt?: Date | string
@@ -29050,12 +27711,12 @@ export namespace Prisma {
     type?: EnumTimesheetTypeFieldUpdateOperationsInput | $Enums.TimesheetType
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutTimesheetsNestedInput
+    user?: app_userUpdateOneRequiredWithoutTimesheetNestedInput
   }
 
   export type timesheetUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
     time?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumTimesheetTypeFieldUpdateOperationsInput | $Enums.TimesheetType
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -29064,7 +27725,7 @@ export namespace Prisma {
 
   export type timesheetCreateManyInput = {
     id?: number
-    userId: string
+    userId: number
     time: Date | string
     type: $Enums.TimesheetType
     createdAt?: Date | string
@@ -29080,7 +27741,7 @@ export namespace Prisma {
 
   export type timesheetUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
     time?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumTimesheetTypeFieldUpdateOperationsInput | $Enums.TimesheetType
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -29092,12 +27753,12 @@ export namespace Prisma {
     totalTime: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutDailySummariesInput
+    user: app_userCreateNestedOneWithoutDaily_summaryInput
   }
 
   export type daily_summaryUncheckedCreateInput = {
     id?: number
-    userId: string
+    userId: number
     date: Date | string
     totalTime: number
     createdAt?: Date | string
@@ -29109,12 +27770,12 @@ export namespace Prisma {
     totalTime?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutDailySummariesNestedInput
+    user?: app_userUpdateOneRequiredWithoutDaily_summaryNestedInput
   }
 
   export type daily_summaryUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     totalTime?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -29123,7 +27784,7 @@ export namespace Prisma {
 
   export type daily_summaryCreateManyInput = {
     id?: number
-    userId: string
+    userId: number
     date: Date | string
     totalTime: number
     createdAt?: Date | string
@@ -29139,7 +27800,7 @@ export namespace Prisma {
 
   export type daily_summaryUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     totalTime?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -29264,26 +27925,9 @@ export namespace Prisma {
     none?: sessionsWhereInput
   }
 
-  export type EmployeeNullableScalarRelationFilter = {
-    is?: employeeWhereInput | null
-    isNot?: employeeWhereInput | null
-  }
-
-  export type AdminNullableScalarRelationFilter = {
-    is?: adminWhereInput | null
-    isNot?: adminWhereInput | null
-  }
-
-  export type TimesheetListRelationFilter = {
-    every?: timesheetWhereInput
-    some?: timesheetWhereInput
-    none?: timesheetWhereInput
-  }
-
-  export type Daily_summaryListRelationFilter = {
-    every?: daily_summaryWhereInput
-    some?: daily_summaryWhereInput
-    none?: daily_summaryWhereInput
+  export type App_userNullableScalarRelationFilter = {
+    is?: app_userWhereInput | null
+    isNot?: app_userWhereInput | null
   }
 
   export type SortOrderInput = {
@@ -29304,14 +27948,6 @@ export namespace Prisma {
   }
 
   export type sessionsOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type timesheetOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type daily_summaryOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -30353,6 +28989,13 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type EnumUserRoleFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserRole | EnumUserRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserRoleFilter<$PrismaModel> | $Enums.UserRole
+  }
+
   export type EnumStatusFilter<$PrismaModel = never> = {
     equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
     in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
@@ -30360,47 +29003,67 @@ export namespace Prisma {
     not?: NestedEnumStatusFilter<$PrismaModel> | $Enums.Status
   }
 
-  export type employeeCountOrderByAggregateInput = {
+  export type TimesheetListRelationFilter = {
+    every?: timesheetWhereInput
+    some?: timesheetWhereInput
+    none?: timesheetWhereInput
+  }
+
+  export type Daily_summaryListRelationFilter = {
+    every?: daily_summaryWhereInput
+    some?: daily_summaryWhereInput
+    none?: daily_summaryWhereInput
+  }
+
+  export type timesheetOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type daily_summaryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type app_userCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    employeeNo?: SortOrder
+    userNo?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
-    position?: SortOrder
+    role?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type employeeAvgOrderByAggregateInput = {
+  export type app_userAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type employeeMaxOrderByAggregateInput = {
+  export type app_userMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    employeeNo?: SortOrder
+    userNo?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
-    position?: SortOrder
+    role?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type employeeMinOrderByAggregateInput = {
+  export type app_userMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    employeeNo?: SortOrder
+    userNo?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
-    position?: SortOrder
+    role?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type employeeSumOrderByAggregateInput = {
+  export type app_userSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -30420,6 +29083,16 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type EnumUserRoleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserRole | EnumUserRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserRoleWithAggregatesFilter<$PrismaModel> | $Enums.UserRole
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUserRoleFilter<$PrismaModel>
+    _max?: NestedEnumUserRoleFilter<$PrismaModel>
+  }
+
   export type EnumStatusWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
     in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
@@ -30430,49 +29103,16 @@ export namespace Prisma {
     _max?: NestedEnumStatusFilter<$PrismaModel>
   }
 
-  export type adminCountOrderByAggregateInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    adminNo?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type adminAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type adminMaxOrderByAggregateInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    adminNo?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type adminMinOrderByAggregateInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    adminNo?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type adminSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type EnumTimesheetTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.TimesheetType | EnumTimesheetTypeFieldRefInput<$PrismaModel>
     in?: $Enums.TimesheetType[] | ListEnumTimesheetTypeFieldRefInput<$PrismaModel>
     notIn?: $Enums.TimesheetType[] | ListEnumTimesheetTypeFieldRefInput<$PrismaModel>
     not?: NestedEnumTimesheetTypeFilter<$PrismaModel> | $Enums.TimesheetType
+  }
+
+  export type App_userScalarRelationFilter = {
+    is?: app_userWhereInput
+    isNot?: app_userWhereInput
   }
 
   export type timesheetCountOrderByAggregateInput = {
@@ -30486,6 +29126,7 @@ export namespace Prisma {
 
   export type timesheetAvgOrderByAggregateInput = {
     id?: SortOrder
+    userId?: SortOrder
   }
 
   export type timesheetMaxOrderByAggregateInput = {
@@ -30508,6 +29149,7 @@ export namespace Prisma {
 
   export type timesheetSumOrderByAggregateInput = {
     id?: SortOrder
+    userId?: SortOrder
   }
 
   export type EnumTimesheetTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -30521,7 +29163,7 @@ export namespace Prisma {
   }
 
   export type daily_summaryUserIdDateCompoundUniqueInput = {
-    userId: string
+    userId: number
     date: Date | string
   }
 
@@ -30536,6 +29178,7 @@ export namespace Prisma {
 
   export type daily_summaryAvgOrderByAggregateInput = {
     id?: SortOrder
+    userId?: SortOrder
     totalTime?: SortOrder
   }
 
@@ -30559,6 +29202,7 @@ export namespace Prisma {
 
   export type daily_summarySumOrderByAggregateInput = {
     id?: SortOrder
+    userId?: SortOrder
     totalTime?: SortOrder
   }
 
@@ -30590,30 +29234,10 @@ export namespace Prisma {
     connect?: sessionsWhereUniqueInput | sessionsWhereUniqueInput[]
   }
 
-  export type employeeCreateNestedOneWithoutUserInput = {
-    create?: XOR<employeeCreateWithoutUserInput, employeeUncheckedCreateWithoutUserInput>
-    connectOrCreate?: employeeCreateOrConnectWithoutUserInput
-    connect?: employeeWhereUniqueInput
-  }
-
-  export type adminCreateNestedOneWithoutUserInput = {
-    create?: XOR<adminCreateWithoutUserInput, adminUncheckedCreateWithoutUserInput>
-    connectOrCreate?: adminCreateOrConnectWithoutUserInput
-    connect?: adminWhereUniqueInput
-  }
-
-  export type timesheetCreateNestedManyWithoutUserInput = {
-    create?: XOR<timesheetCreateWithoutUserInput, timesheetUncheckedCreateWithoutUserInput> | timesheetCreateWithoutUserInput[] | timesheetUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: timesheetCreateOrConnectWithoutUserInput | timesheetCreateOrConnectWithoutUserInput[]
-    createMany?: timesheetCreateManyUserInputEnvelope
-    connect?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
-  }
-
-  export type daily_summaryCreateNestedManyWithoutUserInput = {
-    create?: XOR<daily_summaryCreateWithoutUserInput, daily_summaryUncheckedCreateWithoutUserInput> | daily_summaryCreateWithoutUserInput[] | daily_summaryUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: daily_summaryCreateOrConnectWithoutUserInput | daily_summaryCreateOrConnectWithoutUserInput[]
-    createMany?: daily_summaryCreateManyUserInputEnvelope
-    connect?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
+  export type app_userCreateNestedOneWithoutUserInput = {
+    create?: XOR<app_userCreateWithoutUserInput, app_userUncheckedCreateWithoutUserInput>
+    connectOrCreate?: app_userCreateOrConnectWithoutUserInput
+    connect?: app_userWhereUniqueInput
   }
 
   export type identitiesUncheckedCreateNestedManyWithoutUsersInput = {
@@ -30644,30 +29268,10 @@ export namespace Prisma {
     connect?: sessionsWhereUniqueInput | sessionsWhereUniqueInput[]
   }
 
-  export type employeeUncheckedCreateNestedOneWithoutUserInput = {
-    create?: XOR<employeeCreateWithoutUserInput, employeeUncheckedCreateWithoutUserInput>
-    connectOrCreate?: employeeCreateOrConnectWithoutUserInput
-    connect?: employeeWhereUniqueInput
-  }
-
-  export type adminUncheckedCreateNestedOneWithoutUserInput = {
-    create?: XOR<adminCreateWithoutUserInput, adminUncheckedCreateWithoutUserInput>
-    connectOrCreate?: adminCreateOrConnectWithoutUserInput
-    connect?: adminWhereUniqueInput
-  }
-
-  export type timesheetUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<timesheetCreateWithoutUserInput, timesheetUncheckedCreateWithoutUserInput> | timesheetCreateWithoutUserInput[] | timesheetUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: timesheetCreateOrConnectWithoutUserInput | timesheetCreateOrConnectWithoutUserInput[]
-    createMany?: timesheetCreateManyUserInputEnvelope
-    connect?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
-  }
-
-  export type daily_summaryUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<daily_summaryCreateWithoutUserInput, daily_summaryUncheckedCreateWithoutUserInput> | daily_summaryCreateWithoutUserInput[] | daily_summaryUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: daily_summaryCreateOrConnectWithoutUserInput | daily_summaryCreateOrConnectWithoutUserInput[]
-    createMany?: daily_summaryCreateManyUserInputEnvelope
-    connect?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
+  export type app_userUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<app_userCreateWithoutUserInput, app_userUncheckedCreateWithoutUserInput>
+    connectOrCreate?: app_userCreateOrConnectWithoutUserInput
+    connect?: app_userWhereUniqueInput
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -30754,52 +29358,14 @@ export namespace Prisma {
     deleteMany?: sessionsScalarWhereInput | sessionsScalarWhereInput[]
   }
 
-  export type employeeUpdateOneWithoutUserNestedInput = {
-    create?: XOR<employeeCreateWithoutUserInput, employeeUncheckedCreateWithoutUserInput>
-    connectOrCreate?: employeeCreateOrConnectWithoutUserInput
-    upsert?: employeeUpsertWithoutUserInput
-    disconnect?: employeeWhereInput | boolean
-    delete?: employeeWhereInput | boolean
-    connect?: employeeWhereUniqueInput
-    update?: XOR<XOR<employeeUpdateToOneWithWhereWithoutUserInput, employeeUpdateWithoutUserInput>, employeeUncheckedUpdateWithoutUserInput>
-  }
-
-  export type adminUpdateOneWithoutUserNestedInput = {
-    create?: XOR<adminCreateWithoutUserInput, adminUncheckedCreateWithoutUserInput>
-    connectOrCreate?: adminCreateOrConnectWithoutUserInput
-    upsert?: adminUpsertWithoutUserInput
-    disconnect?: adminWhereInput | boolean
-    delete?: adminWhereInput | boolean
-    connect?: adminWhereUniqueInput
-    update?: XOR<XOR<adminUpdateToOneWithWhereWithoutUserInput, adminUpdateWithoutUserInput>, adminUncheckedUpdateWithoutUserInput>
-  }
-
-  export type timesheetUpdateManyWithoutUserNestedInput = {
-    create?: XOR<timesheetCreateWithoutUserInput, timesheetUncheckedCreateWithoutUserInput> | timesheetCreateWithoutUserInput[] | timesheetUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: timesheetCreateOrConnectWithoutUserInput | timesheetCreateOrConnectWithoutUserInput[]
-    upsert?: timesheetUpsertWithWhereUniqueWithoutUserInput | timesheetUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: timesheetCreateManyUserInputEnvelope
-    set?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
-    disconnect?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
-    delete?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
-    connect?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
-    update?: timesheetUpdateWithWhereUniqueWithoutUserInput | timesheetUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: timesheetUpdateManyWithWhereWithoutUserInput | timesheetUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: timesheetScalarWhereInput | timesheetScalarWhereInput[]
-  }
-
-  export type daily_summaryUpdateManyWithoutUserNestedInput = {
-    create?: XOR<daily_summaryCreateWithoutUserInput, daily_summaryUncheckedCreateWithoutUserInput> | daily_summaryCreateWithoutUserInput[] | daily_summaryUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: daily_summaryCreateOrConnectWithoutUserInput | daily_summaryCreateOrConnectWithoutUserInput[]
-    upsert?: daily_summaryUpsertWithWhereUniqueWithoutUserInput | daily_summaryUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: daily_summaryCreateManyUserInputEnvelope
-    set?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
-    disconnect?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
-    delete?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
-    connect?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
-    update?: daily_summaryUpdateWithWhereUniqueWithoutUserInput | daily_summaryUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: daily_summaryUpdateManyWithWhereWithoutUserInput | daily_summaryUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: daily_summaryScalarWhereInput | daily_summaryScalarWhereInput[]
+  export type app_userUpdateOneWithoutUserNestedInput = {
+    create?: XOR<app_userCreateWithoutUserInput, app_userUncheckedCreateWithoutUserInput>
+    connectOrCreate?: app_userCreateOrConnectWithoutUserInput
+    upsert?: app_userUpsertWithoutUserInput
+    disconnect?: app_userWhereInput | boolean
+    delete?: app_userWhereInput | boolean
+    connect?: app_userWhereUniqueInput
+    update?: XOR<XOR<app_userUpdateToOneWithWhereWithoutUserInput, app_userUpdateWithoutUserInput>, app_userUncheckedUpdateWithoutUserInput>
   }
 
   export type identitiesUncheckedUpdateManyWithoutUsersNestedInput = {
@@ -30858,52 +29424,14 @@ export namespace Prisma {
     deleteMany?: sessionsScalarWhereInput | sessionsScalarWhereInput[]
   }
 
-  export type employeeUncheckedUpdateOneWithoutUserNestedInput = {
-    create?: XOR<employeeCreateWithoutUserInput, employeeUncheckedCreateWithoutUserInput>
-    connectOrCreate?: employeeCreateOrConnectWithoutUserInput
-    upsert?: employeeUpsertWithoutUserInput
-    disconnect?: employeeWhereInput | boolean
-    delete?: employeeWhereInput | boolean
-    connect?: employeeWhereUniqueInput
-    update?: XOR<XOR<employeeUpdateToOneWithWhereWithoutUserInput, employeeUpdateWithoutUserInput>, employeeUncheckedUpdateWithoutUserInput>
-  }
-
-  export type adminUncheckedUpdateOneWithoutUserNestedInput = {
-    create?: XOR<adminCreateWithoutUserInput, adminUncheckedCreateWithoutUserInput>
-    connectOrCreate?: adminCreateOrConnectWithoutUserInput
-    upsert?: adminUpsertWithoutUserInput
-    disconnect?: adminWhereInput | boolean
-    delete?: adminWhereInput | boolean
-    connect?: adminWhereUniqueInput
-    update?: XOR<XOR<adminUpdateToOneWithWhereWithoutUserInput, adminUpdateWithoutUserInput>, adminUncheckedUpdateWithoutUserInput>
-  }
-
-  export type timesheetUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<timesheetCreateWithoutUserInput, timesheetUncheckedCreateWithoutUserInput> | timesheetCreateWithoutUserInput[] | timesheetUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: timesheetCreateOrConnectWithoutUserInput | timesheetCreateOrConnectWithoutUserInput[]
-    upsert?: timesheetUpsertWithWhereUniqueWithoutUserInput | timesheetUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: timesheetCreateManyUserInputEnvelope
-    set?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
-    disconnect?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
-    delete?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
-    connect?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
-    update?: timesheetUpdateWithWhereUniqueWithoutUserInput | timesheetUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: timesheetUpdateManyWithWhereWithoutUserInput | timesheetUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: timesheetScalarWhereInput | timesheetScalarWhereInput[]
-  }
-
-  export type daily_summaryUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<daily_summaryCreateWithoutUserInput, daily_summaryUncheckedCreateWithoutUserInput> | daily_summaryCreateWithoutUserInput[] | daily_summaryUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: daily_summaryCreateOrConnectWithoutUserInput | daily_summaryCreateOrConnectWithoutUserInput[]
-    upsert?: daily_summaryUpsertWithWhereUniqueWithoutUserInput | daily_summaryUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: daily_summaryCreateManyUserInputEnvelope
-    set?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
-    disconnect?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
-    delete?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
-    connect?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
-    update?: daily_summaryUpdateWithWhereUniqueWithoutUserInput | daily_summaryUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: daily_summaryUpdateManyWithWhereWithoutUserInput | daily_summaryUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: daily_summaryScalarWhereInput | daily_summaryScalarWhereInput[]
+  export type app_userUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: XOR<app_userCreateWithoutUserInput, app_userUncheckedCreateWithoutUserInput>
+    connectOrCreate?: app_userCreateOrConnectWithoutUserInput
+    upsert?: app_userUpsertWithoutUserInput
+    disconnect?: app_userWhereInput | boolean
+    delete?: app_userWhereInput | boolean
+    connect?: app_userWhereUniqueInput
+    update?: XOR<XOR<app_userUpdateToOneWithWhereWithoutUserInput, app_userUpdateWithoutUserInput>, app_userUncheckedUpdateWithoutUserInput>
   }
 
   export type saml_relay_statesCreateNestedManyWithoutFlow_stateInput = {
@@ -31390,22 +29918,82 @@ export namespace Prisma {
     deleteMany?: sso_domainsScalarWhereInput | sso_domainsScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutEmployeeInput = {
-    create?: XOR<UserCreateWithoutEmployeeInput, UserUncheckedCreateWithoutEmployeeInput>
-    connectOrCreate?: UserCreateOrConnectWithoutEmployeeInput
+  export type UserCreateNestedOneWithoutUserInput = {
+    create?: XOR<UserCreateWithoutUserInput, UserUncheckedCreateWithoutUserInput>
+    connectOrCreate?: UserCreateOrConnectWithoutUserInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type timesheetCreateNestedManyWithoutUserInput = {
+    create?: XOR<timesheetCreateWithoutUserInput, timesheetUncheckedCreateWithoutUserInput> | timesheetCreateWithoutUserInput[] | timesheetUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: timesheetCreateOrConnectWithoutUserInput | timesheetCreateOrConnectWithoutUserInput[]
+    createMany?: timesheetCreateManyUserInputEnvelope
+    connect?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
+  }
+
+  export type daily_summaryCreateNestedManyWithoutUserInput = {
+    create?: XOR<daily_summaryCreateWithoutUserInput, daily_summaryUncheckedCreateWithoutUserInput> | daily_summaryCreateWithoutUserInput[] | daily_summaryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: daily_summaryCreateOrConnectWithoutUserInput | daily_summaryCreateOrConnectWithoutUserInput[]
+    createMany?: daily_summaryCreateManyUserInputEnvelope
+    connect?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
+  }
+
+  export type timesheetUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<timesheetCreateWithoutUserInput, timesheetUncheckedCreateWithoutUserInput> | timesheetCreateWithoutUserInput[] | timesheetUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: timesheetCreateOrConnectWithoutUserInput | timesheetCreateOrConnectWithoutUserInput[]
+    createMany?: timesheetCreateManyUserInputEnvelope
+    connect?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
+  }
+
+  export type daily_summaryUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<daily_summaryCreateWithoutUserInput, daily_summaryUncheckedCreateWithoutUserInput> | daily_summaryCreateWithoutUserInput[] | daily_summaryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: daily_summaryCreateOrConnectWithoutUserInput | daily_summaryCreateOrConnectWithoutUserInput[]
+    createMany?: daily_summaryCreateManyUserInputEnvelope
+    connect?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
+  }
+
+  export type EnumUserRoleFieldUpdateOperationsInput = {
+    set?: $Enums.UserRole
   }
 
   export type EnumStatusFieldUpdateOperationsInput = {
     set?: $Enums.Status
   }
 
-  export type UserUpdateOneRequiredWithoutEmployeeNestedInput = {
-    create?: XOR<UserCreateWithoutEmployeeInput, UserUncheckedCreateWithoutEmployeeInput>
-    connectOrCreate?: UserCreateOrConnectWithoutEmployeeInput
-    upsert?: UserUpsertWithoutEmployeeInput
+  export type UserUpdateOneRequiredWithoutUserNestedInput = {
+    create?: XOR<UserCreateWithoutUserInput, UserUncheckedCreateWithoutUserInput>
+    connectOrCreate?: UserCreateOrConnectWithoutUserInput
+    upsert?: UserUpsertWithoutUserInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutEmployeeInput, UserUpdateWithoutEmployeeInput>, UserUncheckedUpdateWithoutEmployeeInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutUserInput, UserUpdateWithoutUserInput>, UserUncheckedUpdateWithoutUserInput>
+  }
+
+  export type timesheetUpdateManyWithoutUserNestedInput = {
+    create?: XOR<timesheetCreateWithoutUserInput, timesheetUncheckedCreateWithoutUserInput> | timesheetCreateWithoutUserInput[] | timesheetUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: timesheetCreateOrConnectWithoutUserInput | timesheetCreateOrConnectWithoutUserInput[]
+    upsert?: timesheetUpsertWithWhereUniqueWithoutUserInput | timesheetUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: timesheetCreateManyUserInputEnvelope
+    set?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
+    disconnect?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
+    delete?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
+    connect?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
+    update?: timesheetUpdateWithWhereUniqueWithoutUserInput | timesheetUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: timesheetUpdateManyWithWhereWithoutUserInput | timesheetUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: timesheetScalarWhereInput | timesheetScalarWhereInput[]
+  }
+
+  export type daily_summaryUpdateManyWithoutUserNestedInput = {
+    create?: XOR<daily_summaryCreateWithoutUserInput, daily_summaryUncheckedCreateWithoutUserInput> | daily_summaryCreateWithoutUserInput[] | daily_summaryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: daily_summaryCreateOrConnectWithoutUserInput | daily_summaryCreateOrConnectWithoutUserInput[]
+    upsert?: daily_summaryUpsertWithWhereUniqueWithoutUserInput | daily_summaryUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: daily_summaryCreateManyUserInputEnvelope
+    set?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
+    disconnect?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
+    delete?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
+    connect?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
+    update?: daily_summaryUpdateWithWhereUniqueWithoutUserInput | daily_summaryUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: daily_summaryUpdateManyWithWhereWithoutUserInput | daily_summaryUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: daily_summaryScalarWhereInput | daily_summaryScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -31416,50 +30004,64 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type UserCreateNestedOneWithoutAdminInput = {
-    create?: XOR<UserCreateWithoutAdminInput, UserUncheckedCreateWithoutAdminInput>
-    connectOrCreate?: UserCreateOrConnectWithoutAdminInput
-    connect?: UserWhereUniqueInput
+  export type timesheetUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<timesheetCreateWithoutUserInput, timesheetUncheckedCreateWithoutUserInput> | timesheetCreateWithoutUserInput[] | timesheetUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: timesheetCreateOrConnectWithoutUserInput | timesheetCreateOrConnectWithoutUserInput[]
+    upsert?: timesheetUpsertWithWhereUniqueWithoutUserInput | timesheetUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: timesheetCreateManyUserInputEnvelope
+    set?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
+    disconnect?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
+    delete?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
+    connect?: timesheetWhereUniqueInput | timesheetWhereUniqueInput[]
+    update?: timesheetUpdateWithWhereUniqueWithoutUserInput | timesheetUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: timesheetUpdateManyWithWhereWithoutUserInput | timesheetUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: timesheetScalarWhereInput | timesheetScalarWhereInput[]
   }
 
-  export type UserUpdateOneRequiredWithoutAdminNestedInput = {
-    create?: XOR<UserCreateWithoutAdminInput, UserUncheckedCreateWithoutAdminInput>
-    connectOrCreate?: UserCreateOrConnectWithoutAdminInput
-    upsert?: UserUpsertWithoutAdminInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAdminInput, UserUpdateWithoutAdminInput>, UserUncheckedUpdateWithoutAdminInput>
+  export type daily_summaryUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<daily_summaryCreateWithoutUserInput, daily_summaryUncheckedCreateWithoutUserInput> | daily_summaryCreateWithoutUserInput[] | daily_summaryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: daily_summaryCreateOrConnectWithoutUserInput | daily_summaryCreateOrConnectWithoutUserInput[]
+    upsert?: daily_summaryUpsertWithWhereUniqueWithoutUserInput | daily_summaryUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: daily_summaryCreateManyUserInputEnvelope
+    set?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
+    disconnect?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
+    delete?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
+    connect?: daily_summaryWhereUniqueInput | daily_summaryWhereUniqueInput[]
+    update?: daily_summaryUpdateWithWhereUniqueWithoutUserInput | daily_summaryUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: daily_summaryUpdateManyWithWhereWithoutUserInput | daily_summaryUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: daily_summaryScalarWhereInput | daily_summaryScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutTimesheetsInput = {
-    create?: XOR<UserCreateWithoutTimesheetsInput, UserUncheckedCreateWithoutTimesheetsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutTimesheetsInput
-    connect?: UserWhereUniqueInput
+  export type app_userCreateNestedOneWithoutTimesheetInput = {
+    create?: XOR<app_userCreateWithoutTimesheetInput, app_userUncheckedCreateWithoutTimesheetInput>
+    connectOrCreate?: app_userCreateOrConnectWithoutTimesheetInput
+    connect?: app_userWhereUniqueInput
   }
 
   export type EnumTimesheetTypeFieldUpdateOperationsInput = {
     set?: $Enums.TimesheetType
   }
 
-  export type UserUpdateOneRequiredWithoutTimesheetsNestedInput = {
-    create?: XOR<UserCreateWithoutTimesheetsInput, UserUncheckedCreateWithoutTimesheetsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutTimesheetsInput
-    upsert?: UserUpsertWithoutTimesheetsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutTimesheetsInput, UserUpdateWithoutTimesheetsInput>, UserUncheckedUpdateWithoutTimesheetsInput>
+  export type app_userUpdateOneRequiredWithoutTimesheetNestedInput = {
+    create?: XOR<app_userCreateWithoutTimesheetInput, app_userUncheckedCreateWithoutTimesheetInput>
+    connectOrCreate?: app_userCreateOrConnectWithoutTimesheetInput
+    upsert?: app_userUpsertWithoutTimesheetInput
+    connect?: app_userWhereUniqueInput
+    update?: XOR<XOR<app_userUpdateToOneWithWhereWithoutTimesheetInput, app_userUpdateWithoutTimesheetInput>, app_userUncheckedUpdateWithoutTimesheetInput>
   }
 
-  export type UserCreateNestedOneWithoutDailySummariesInput = {
-    create?: XOR<UserCreateWithoutDailySummariesInput, UserUncheckedCreateWithoutDailySummariesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutDailySummariesInput
-    connect?: UserWhereUniqueInput
+  export type app_userCreateNestedOneWithoutDaily_summaryInput = {
+    create?: XOR<app_userCreateWithoutDaily_summaryInput, app_userUncheckedCreateWithoutDaily_summaryInput>
+    connectOrCreate?: app_userCreateOrConnectWithoutDaily_summaryInput
+    connect?: app_userWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutDailySummariesNestedInput = {
-    create?: XOR<UserCreateWithoutDailySummariesInput, UserUncheckedCreateWithoutDailySummariesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutDailySummariesInput
-    upsert?: UserUpsertWithoutDailySummariesInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutDailySummariesInput, UserUpdateWithoutDailySummariesInput>, UserUncheckedUpdateWithoutDailySummariesInput>
+  export type app_userUpdateOneRequiredWithoutDaily_summaryNestedInput = {
+    create?: XOR<app_userCreateWithoutDaily_summaryInput, app_userUncheckedCreateWithoutDaily_summaryInput>
+    connectOrCreate?: app_userCreateOrConnectWithoutDaily_summaryInput
+    upsert?: app_userUpsertWithoutDaily_summaryInput
+    connect?: app_userWhereUniqueInput
+    update?: XOR<XOR<app_userUpdateToOneWithWhereWithoutDaily_summaryInput, app_userUpdateWithoutDaily_summaryInput>, app_userUncheckedUpdateWithoutDaily_summaryInput>
   }
 
   export type NestedUuidNullableFilter<$PrismaModel = never> = {
@@ -31868,6 +30470,13 @@ export namespace Prisma {
     _max?: NestedEnumaal_levelNullableFilter<$PrismaModel>
   }
 
+  export type NestedEnumUserRoleFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserRole | EnumUserRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserRoleFilter<$PrismaModel> | $Enums.UserRole
+  }
+
   export type NestedEnumStatusFilter<$PrismaModel = never> = {
     equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
     in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
@@ -31889,6 +30498,16 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedEnumUserRoleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserRole | EnumUserRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserRoleWithAggregatesFilter<$PrismaModel> | $Enums.UserRole
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUserRoleFilter<$PrismaModel>
+    _max?: NestedEnumUserRoleFilter<$PrismaModel>
   }
 
   export type NestedEnumStatusWithAggregatesFilter<$PrismaModel = never> = {
@@ -32058,102 +30677,34 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type employeeCreateWithoutUserInput = {
-    employeeNo: string
+  export type app_userCreateWithoutUserInput = {
+    userNo: string
     firstName: string
     lastName: string
-    position: string
+    role?: $Enums.UserRole
     status?: $Enums.Status
     createdAt?: Date | string
     updatedAt?: Date | string
+    timesheet?: timesheetCreateNestedManyWithoutUserInput
+    daily_summary?: daily_summaryCreateNestedManyWithoutUserInput
   }
 
-  export type employeeUncheckedCreateWithoutUserInput = {
+  export type app_userUncheckedCreateWithoutUserInput = {
     id?: number
-    employeeNo: string
+    userNo: string
     firstName: string
     lastName: string
-    position: string
+    role?: $Enums.UserRole
     status?: $Enums.Status
     createdAt?: Date | string
     updatedAt?: Date | string
+    timesheet?: timesheetUncheckedCreateNestedManyWithoutUserInput
+    daily_summary?: daily_summaryUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type employeeCreateOrConnectWithoutUserInput = {
-    where: employeeWhereUniqueInput
-    create: XOR<employeeCreateWithoutUserInput, employeeUncheckedCreateWithoutUserInput>
-  }
-
-  export type adminCreateWithoutUserInput = {
-    adminNo: string
-    firstName: string
-    lastName: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type adminUncheckedCreateWithoutUserInput = {
-    id?: number
-    adminNo: string
-    firstName: string
-    lastName: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type adminCreateOrConnectWithoutUserInput = {
-    where: adminWhereUniqueInput
-    create: XOR<adminCreateWithoutUserInput, adminUncheckedCreateWithoutUserInput>
-  }
-
-  export type timesheetCreateWithoutUserInput = {
-    time: Date | string
-    type: $Enums.TimesheetType
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type timesheetUncheckedCreateWithoutUserInput = {
-    id?: number
-    time: Date | string
-    type: $Enums.TimesheetType
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type timesheetCreateOrConnectWithoutUserInput = {
-    where: timesheetWhereUniqueInput
-    create: XOR<timesheetCreateWithoutUserInput, timesheetUncheckedCreateWithoutUserInput>
-  }
-
-  export type timesheetCreateManyUserInputEnvelope = {
-    data: timesheetCreateManyUserInput | timesheetCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type daily_summaryCreateWithoutUserInput = {
-    date: Date | string
-    totalTime: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type daily_summaryUncheckedCreateWithoutUserInput = {
-    id?: number
-    date: Date | string
-    totalTime: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type daily_summaryCreateOrConnectWithoutUserInput = {
-    where: daily_summaryWhereUniqueInput
-    create: XOR<daily_summaryCreateWithoutUserInput, daily_summaryUncheckedCreateWithoutUserInput>
-  }
-
-  export type daily_summaryCreateManyUserInputEnvelope = {
-    data: daily_summaryCreateManyUserInput | daily_summaryCreateManyUserInput[]
-    skipDuplicates?: boolean
+  export type app_userCreateOrConnectWithoutUserInput = {
+    where: app_userWhereUniqueInput
+    create: XOR<app_userCreateWithoutUserInput, app_userUncheckedCreateWithoutUserInput>
   }
 
   export type identitiesUpsertWithWhereUniqueWithoutUsersInput = {
@@ -32283,120 +30834,40 @@ export namespace Prisma {
     tag?: StringNullableFilter<"sessions"> | string | null
   }
 
-  export type employeeUpsertWithoutUserInput = {
-    update: XOR<employeeUpdateWithoutUserInput, employeeUncheckedUpdateWithoutUserInput>
-    create: XOR<employeeCreateWithoutUserInput, employeeUncheckedCreateWithoutUserInput>
-    where?: employeeWhereInput
+  export type app_userUpsertWithoutUserInput = {
+    update: XOR<app_userUpdateWithoutUserInput, app_userUncheckedUpdateWithoutUserInput>
+    create: XOR<app_userCreateWithoutUserInput, app_userUncheckedCreateWithoutUserInput>
+    where?: app_userWhereInput
   }
 
-  export type employeeUpdateToOneWithWhereWithoutUserInput = {
-    where?: employeeWhereInput
-    data: XOR<employeeUpdateWithoutUserInput, employeeUncheckedUpdateWithoutUserInput>
+  export type app_userUpdateToOneWithWhereWithoutUserInput = {
+    where?: app_userWhereInput
+    data: XOR<app_userUpdateWithoutUserInput, app_userUncheckedUpdateWithoutUserInput>
   }
 
-  export type employeeUpdateWithoutUserInput = {
-    employeeNo?: StringFieldUpdateOperationsInput | string
+  export type app_userUpdateWithoutUserInput = {
+    userNo?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
-    position?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    timesheet?: timesheetUpdateManyWithoutUserNestedInput
+    daily_summary?: daily_summaryUpdateManyWithoutUserNestedInput
   }
 
-  export type employeeUncheckedUpdateWithoutUserInput = {
+  export type app_userUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employeeNo?: StringFieldUpdateOperationsInput | string
+    userNo?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
-    position?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type adminUpsertWithoutUserInput = {
-    update: XOR<adminUpdateWithoutUserInput, adminUncheckedUpdateWithoutUserInput>
-    create: XOR<adminCreateWithoutUserInput, adminUncheckedCreateWithoutUserInput>
-    where?: adminWhereInput
-  }
-
-  export type adminUpdateToOneWithWhereWithoutUserInput = {
-    where?: adminWhereInput
-    data: XOR<adminUpdateWithoutUserInput, adminUncheckedUpdateWithoutUserInput>
-  }
-
-  export type adminUpdateWithoutUserInput = {
-    adminNo?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type adminUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    adminNo?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type timesheetUpsertWithWhereUniqueWithoutUserInput = {
-    where: timesheetWhereUniqueInput
-    update: XOR<timesheetUpdateWithoutUserInput, timesheetUncheckedUpdateWithoutUserInput>
-    create: XOR<timesheetCreateWithoutUserInput, timesheetUncheckedCreateWithoutUserInput>
-  }
-
-  export type timesheetUpdateWithWhereUniqueWithoutUserInput = {
-    where: timesheetWhereUniqueInput
-    data: XOR<timesheetUpdateWithoutUserInput, timesheetUncheckedUpdateWithoutUserInput>
-  }
-
-  export type timesheetUpdateManyWithWhereWithoutUserInput = {
-    where: timesheetScalarWhereInput
-    data: XOR<timesheetUpdateManyMutationInput, timesheetUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type timesheetScalarWhereInput = {
-    AND?: timesheetScalarWhereInput | timesheetScalarWhereInput[]
-    OR?: timesheetScalarWhereInput[]
-    NOT?: timesheetScalarWhereInput | timesheetScalarWhereInput[]
-    id?: IntFilter<"timesheet"> | number
-    userId?: UuidFilter<"timesheet"> | string
-    time?: DateTimeFilter<"timesheet"> | Date | string
-    type?: EnumTimesheetTypeFilter<"timesheet"> | $Enums.TimesheetType
-    createdAt?: DateTimeFilter<"timesheet"> | Date | string
-    updatedAt?: DateTimeFilter<"timesheet"> | Date | string
-  }
-
-  export type daily_summaryUpsertWithWhereUniqueWithoutUserInput = {
-    where: daily_summaryWhereUniqueInput
-    update: XOR<daily_summaryUpdateWithoutUserInput, daily_summaryUncheckedUpdateWithoutUserInput>
-    create: XOR<daily_summaryCreateWithoutUserInput, daily_summaryUncheckedCreateWithoutUserInput>
-  }
-
-  export type daily_summaryUpdateWithWhereUniqueWithoutUserInput = {
-    where: daily_summaryWhereUniqueInput
-    data: XOR<daily_summaryUpdateWithoutUserInput, daily_summaryUncheckedUpdateWithoutUserInput>
-  }
-
-  export type daily_summaryUpdateManyWithWhereWithoutUserInput = {
-    where: daily_summaryScalarWhereInput
-    data: XOR<daily_summaryUpdateManyMutationInput, daily_summaryUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type daily_summaryScalarWhereInput = {
-    AND?: daily_summaryScalarWhereInput | daily_summaryScalarWhereInput[]
-    OR?: daily_summaryScalarWhereInput[]
-    NOT?: daily_summaryScalarWhereInput | daily_summaryScalarWhereInput[]
-    id?: IntFilter<"daily_summary"> | number
-    userId?: UuidFilter<"daily_summary"> | string
-    date?: DateTimeFilter<"daily_summary"> | Date | string
-    totalTime?: IntFilter<"daily_summary"> | number
-    createdAt?: DateTimeFilter<"daily_summary"> | Date | string
-    updatedAt?: DateTimeFilter<"daily_summary"> | Date | string
+    timesheet?: timesheetUncheckedUpdateManyWithoutUserNestedInput
+    daily_summary?: daily_summaryUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type saml_relay_statesCreateWithoutFlow_stateInput = {
@@ -32498,10 +30969,7 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsCreateNestedManyWithoutUsersInput
     one_time_tokens?: one_time_tokensCreateNestedManyWithoutUsersInput
     sessions?: sessionsCreateNestedManyWithoutUsersInput
-    employee?: employeeCreateNestedOneWithoutUserInput
-    admin?: adminCreateNestedOneWithoutUserInput
-    timesheets?: timesheetCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryCreateNestedManyWithoutUserInput
+    user?: app_userCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutIdentitiesInput = {
@@ -32543,10 +31011,7 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsUncheckedCreateNestedManyWithoutUsersInput
     one_time_tokens?: one_time_tokensUncheckedCreateNestedManyWithoutUsersInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUsersInput
-    employee?: employeeUncheckedCreateNestedOneWithoutUserInput
-    admin?: adminUncheckedCreateNestedOneWithoutUserInput
-    timesheets?: timesheetUncheckedCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryUncheckedCreateNestedManyWithoutUserInput
+    user?: app_userUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutIdentitiesInput = {
@@ -32604,10 +31069,7 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsUpdateManyWithoutUsersNestedInput
     one_time_tokens?: one_time_tokensUpdateManyWithoutUsersNestedInput
     sessions?: sessionsUpdateManyWithoutUsersNestedInput
-    employee?: employeeUpdateOneWithoutUserNestedInput
-    admin?: adminUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUpdateManyWithoutUserNestedInput
+    user?: app_userUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutIdentitiesInput = {
@@ -32649,10 +31111,7 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsUncheckedUpdateManyWithoutUsersNestedInput
     one_time_tokens?: one_time_tokensUncheckedUpdateManyWithoutUsersNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUsersNestedInput
-    employee?: employeeUncheckedUpdateOneWithoutUserNestedInput
-    admin?: adminUncheckedUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUncheckedUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUncheckedUpdateManyWithoutUserNestedInput
+    user?: app_userUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type sessionsCreateWithoutMfa_amr_claimsInput = {
@@ -32874,10 +31333,7 @@ export namespace Prisma {
     identities?: identitiesCreateNestedManyWithoutUsersInput
     one_time_tokens?: one_time_tokensCreateNestedManyWithoutUsersInput
     sessions?: sessionsCreateNestedManyWithoutUsersInput
-    employee?: employeeCreateNestedOneWithoutUserInput
-    admin?: adminCreateNestedOneWithoutUserInput
-    timesheets?: timesheetCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryCreateNestedManyWithoutUserInput
+    user?: app_userCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutMfa_factorsInput = {
@@ -32919,10 +31375,7 @@ export namespace Prisma {
     identities?: identitiesUncheckedCreateNestedManyWithoutUsersInput
     one_time_tokens?: one_time_tokensUncheckedCreateNestedManyWithoutUsersInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUsersInput
-    employee?: employeeUncheckedCreateNestedOneWithoutUserInput
-    admin?: adminUncheckedCreateNestedOneWithoutUserInput
-    timesheets?: timesheetUncheckedCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryUncheckedCreateNestedManyWithoutUserInput
+    user?: app_userUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutMfa_factorsInput = {
@@ -33009,10 +31462,7 @@ export namespace Prisma {
     identities?: identitiesUpdateManyWithoutUsersNestedInput
     one_time_tokens?: one_time_tokensUpdateManyWithoutUsersNestedInput
     sessions?: sessionsUpdateManyWithoutUsersNestedInput
-    employee?: employeeUpdateOneWithoutUserNestedInput
-    admin?: adminUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUpdateManyWithoutUserNestedInput
+    user?: app_userUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutMfa_factorsInput = {
@@ -33054,10 +31504,7 @@ export namespace Prisma {
     identities?: identitiesUncheckedUpdateManyWithoutUsersNestedInput
     one_time_tokens?: one_time_tokensUncheckedUpdateManyWithoutUsersNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUsersNestedInput
-    employee?: employeeUncheckedUpdateOneWithoutUserNestedInput
-    admin?: adminUncheckedUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUncheckedUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUncheckedUpdateManyWithoutUserNestedInput
+    user?: app_userUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type UserCreateWithoutOne_time_tokensInput = {
@@ -33099,10 +31546,7 @@ export namespace Prisma {
     identities?: identitiesCreateNestedManyWithoutUsersInput
     mfa_factors?: mfa_factorsCreateNestedManyWithoutUsersInput
     sessions?: sessionsCreateNestedManyWithoutUsersInput
-    employee?: employeeCreateNestedOneWithoutUserInput
-    admin?: adminCreateNestedOneWithoutUserInput
-    timesheets?: timesheetCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryCreateNestedManyWithoutUserInput
+    user?: app_userCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutOne_time_tokensInput = {
@@ -33144,10 +31588,7 @@ export namespace Prisma {
     identities?: identitiesUncheckedCreateNestedManyWithoutUsersInput
     mfa_factors?: mfa_factorsUncheckedCreateNestedManyWithoutUsersInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUsersInput
-    employee?: employeeUncheckedCreateNestedOneWithoutUserInput
-    admin?: adminUncheckedCreateNestedOneWithoutUserInput
-    timesheets?: timesheetUncheckedCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryUncheckedCreateNestedManyWithoutUserInput
+    user?: app_userUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutOne_time_tokensInput = {
@@ -33205,10 +31646,7 @@ export namespace Prisma {
     identities?: identitiesUpdateManyWithoutUsersNestedInput
     mfa_factors?: mfa_factorsUpdateManyWithoutUsersNestedInput
     sessions?: sessionsUpdateManyWithoutUsersNestedInput
-    employee?: employeeUpdateOneWithoutUserNestedInput
-    admin?: adminUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUpdateManyWithoutUserNestedInput
+    user?: app_userUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutOne_time_tokensInput = {
@@ -33250,10 +31688,7 @@ export namespace Prisma {
     identities?: identitiesUncheckedUpdateManyWithoutUsersNestedInput
     mfa_factors?: mfa_factorsUncheckedUpdateManyWithoutUsersNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUsersNestedInput
-    employee?: employeeUncheckedUpdateOneWithoutUserNestedInput
-    admin?: adminUncheckedUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUncheckedUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUncheckedUpdateManyWithoutUserNestedInput
+    user?: app_userUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type sessionsCreateWithoutRefresh_tokensInput = {
@@ -33607,10 +32042,7 @@ export namespace Prisma {
     identities?: identitiesCreateNestedManyWithoutUsersInput
     mfa_factors?: mfa_factorsCreateNestedManyWithoutUsersInput
     one_time_tokens?: one_time_tokensCreateNestedManyWithoutUsersInput
-    employee?: employeeCreateNestedOneWithoutUserInput
-    admin?: adminCreateNestedOneWithoutUserInput
-    timesheets?: timesheetCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryCreateNestedManyWithoutUserInput
+    user?: app_userCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -33652,10 +32084,7 @@ export namespace Prisma {
     identities?: identitiesUncheckedCreateNestedManyWithoutUsersInput
     mfa_factors?: mfa_factorsUncheckedCreateNestedManyWithoutUsersInput
     one_time_tokens?: one_time_tokensUncheckedCreateNestedManyWithoutUsersInput
-    employee?: employeeUncheckedCreateNestedOneWithoutUserInput
-    admin?: adminUncheckedCreateNestedOneWithoutUserInput
-    timesheets?: timesheetUncheckedCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryUncheckedCreateNestedManyWithoutUserInput
+    user?: app_userUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -33771,10 +32200,7 @@ export namespace Prisma {
     identities?: identitiesUpdateManyWithoutUsersNestedInput
     mfa_factors?: mfa_factorsUpdateManyWithoutUsersNestedInput
     one_time_tokens?: one_time_tokensUpdateManyWithoutUsersNestedInput
-    employee?: employeeUpdateOneWithoutUserNestedInput
-    admin?: adminUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUpdateManyWithoutUserNestedInput
+    user?: app_userUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -33816,10 +32242,7 @@ export namespace Prisma {
     identities?: identitiesUncheckedUpdateManyWithoutUsersNestedInput
     mfa_factors?: mfa_factorsUncheckedUpdateManyWithoutUsersNestedInput
     one_time_tokens?: one_time_tokensUncheckedUpdateManyWithoutUsersNestedInput
-    employee?: employeeUncheckedUpdateOneWithoutUserNestedInput
-    admin?: adminUncheckedUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUncheckedUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUncheckedUpdateManyWithoutUserNestedInput
+    user?: app_userUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type sso_providersCreateWithoutSso_domainsInput = {
@@ -34034,7 +32457,7 @@ export namespace Prisma {
     updated_at?: DateTimeNullableFilter<"sso_domains"> | Date | string | null
   }
 
-  export type UserCreateWithoutEmployeeInput = {
+  export type UserCreateWithoutUserInput = {
     instance_id?: string | null
     id: string
     aud?: string | null
@@ -34074,12 +32497,9 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsCreateNestedManyWithoutUsersInput
     one_time_tokens?: one_time_tokensCreateNestedManyWithoutUsersInput
     sessions?: sessionsCreateNestedManyWithoutUsersInput
-    admin?: adminCreateNestedOneWithoutUserInput
-    timesheets?: timesheetCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutEmployeeInput = {
+  export type UserUncheckedCreateWithoutUserInput = {
     instance_id?: string | null
     id: string
     aud?: string | null
@@ -34119,28 +32539,75 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsUncheckedCreateNestedManyWithoutUsersInput
     one_time_tokens?: one_time_tokensUncheckedCreateNestedManyWithoutUsersInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUsersInput
-    admin?: adminUncheckedCreateNestedOneWithoutUserInput
-    timesheets?: timesheetUncheckedCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutEmployeeInput = {
+  export type UserCreateOrConnectWithoutUserInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutEmployeeInput, UserUncheckedCreateWithoutEmployeeInput>
+    create: XOR<UserCreateWithoutUserInput, UserUncheckedCreateWithoutUserInput>
   }
 
-  export type UserUpsertWithoutEmployeeInput = {
-    update: XOR<UserUpdateWithoutEmployeeInput, UserUncheckedUpdateWithoutEmployeeInput>
-    create: XOR<UserCreateWithoutEmployeeInput, UserUncheckedCreateWithoutEmployeeInput>
+  export type timesheetCreateWithoutUserInput = {
+    time: Date | string
+    type: $Enums.TimesheetType
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type timesheetUncheckedCreateWithoutUserInput = {
+    id?: number
+    time: Date | string
+    type: $Enums.TimesheetType
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type timesheetCreateOrConnectWithoutUserInput = {
+    where: timesheetWhereUniqueInput
+    create: XOR<timesheetCreateWithoutUserInput, timesheetUncheckedCreateWithoutUserInput>
+  }
+
+  export type timesheetCreateManyUserInputEnvelope = {
+    data: timesheetCreateManyUserInput | timesheetCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type daily_summaryCreateWithoutUserInput = {
+    date: Date | string
+    totalTime: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type daily_summaryUncheckedCreateWithoutUserInput = {
+    id?: number
+    date: Date | string
+    totalTime: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type daily_summaryCreateOrConnectWithoutUserInput = {
+    where: daily_summaryWhereUniqueInput
+    create: XOR<daily_summaryCreateWithoutUserInput, daily_summaryUncheckedCreateWithoutUserInput>
+  }
+
+  export type daily_summaryCreateManyUserInputEnvelope = {
+    data: daily_summaryCreateManyUserInput | daily_summaryCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutUserInput = {
+    update: XOR<UserUpdateWithoutUserInput, UserUncheckedUpdateWithoutUserInput>
+    create: XOR<UserCreateWithoutUserInput, UserUncheckedCreateWithoutUserInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutEmployeeInput = {
+  export type UserUpdateToOneWithWhereWithoutUserInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutEmployeeInput, UserUncheckedUpdateWithoutEmployeeInput>
+    data: XOR<UserUpdateWithoutUserInput, UserUncheckedUpdateWithoutUserInput>
   }
 
-  export type UserUpdateWithoutEmployeeInput = {
+  export type UserUpdateWithoutUserInput = {
     instance_id?: NullableStringFieldUpdateOperationsInput | string | null
     id?: StringFieldUpdateOperationsInput | string
     aud?: NullableStringFieldUpdateOperationsInput | string | null
@@ -34180,12 +32647,9 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsUpdateManyWithoutUsersNestedInput
     one_time_tokens?: one_time_tokensUpdateManyWithoutUsersNestedInput
     sessions?: sessionsUpdateManyWithoutUsersNestedInput
-    admin?: adminUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutEmployeeInput = {
+  export type UserUncheckedUpdateWithoutUserInput = {
     instance_id?: NullableStringFieldUpdateOperationsInput | string | null
     id?: StringFieldUpdateOperationsInput | string
     aud?: NullableStringFieldUpdateOperationsInput | string | null
@@ -34225,597 +32689,194 @@ export namespace Prisma {
     mfa_factors?: mfa_factorsUncheckedUpdateManyWithoutUsersNestedInput
     one_time_tokens?: one_time_tokensUncheckedUpdateManyWithoutUsersNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUsersNestedInput
-    admin?: adminUncheckedUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUncheckedUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type UserCreateWithoutAdminInput = {
-    instance_id?: string | null
-    id: string
-    aud?: string | null
-    role?: string | null
-    email?: string | null
-    encrypted_password?: string | null
-    email_confirmed_at?: Date | string | null
-    invited_at?: Date | string | null
-    confirmation_token?: string | null
-    confirmation_sent_at?: Date | string | null
-    recovery_token?: string | null
-    recovery_sent_at?: Date | string | null
-    email_change_token_new?: string | null
-    email_change?: string | null
-    email_change_sent_at?: Date | string | null
-    last_sign_in_at?: Date | string | null
-    raw_app_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    raw_user_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    is_super_admin?: boolean | null
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    phone?: string | null
-    phone_confirmed_at?: Date | string | null
-    phone_change?: string | null
-    phone_change_token?: string | null
-    phone_change_sent_at?: Date | string | null
-    confirmed_at?: Date | string | null
-    email_change_token_current?: string | null
-    email_change_confirm_status?: number | null
-    banned_until?: Date | string | null
-    reauthentication_token?: string | null
-    reauthentication_sent_at?: Date | string | null
-    is_sso_user?: boolean
-    deleted_at?: Date | string | null
-    is_anonymous?: boolean
-    identities?: identitiesCreateNestedManyWithoutUsersInput
-    mfa_factors?: mfa_factorsCreateNestedManyWithoutUsersInput
-    one_time_tokens?: one_time_tokensCreateNestedManyWithoutUsersInput
-    sessions?: sessionsCreateNestedManyWithoutUsersInput
-    employee?: employeeCreateNestedOneWithoutUserInput
-    timesheets?: timesheetCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryCreateNestedManyWithoutUserInput
+  export type timesheetUpsertWithWhereUniqueWithoutUserInput = {
+    where: timesheetWhereUniqueInput
+    update: XOR<timesheetUpdateWithoutUserInput, timesheetUncheckedUpdateWithoutUserInput>
+    create: XOR<timesheetCreateWithoutUserInput, timesheetUncheckedCreateWithoutUserInput>
   }
 
-  export type UserUncheckedCreateWithoutAdminInput = {
-    instance_id?: string | null
-    id: string
-    aud?: string | null
-    role?: string | null
-    email?: string | null
-    encrypted_password?: string | null
-    email_confirmed_at?: Date | string | null
-    invited_at?: Date | string | null
-    confirmation_token?: string | null
-    confirmation_sent_at?: Date | string | null
-    recovery_token?: string | null
-    recovery_sent_at?: Date | string | null
-    email_change_token_new?: string | null
-    email_change?: string | null
-    email_change_sent_at?: Date | string | null
-    last_sign_in_at?: Date | string | null
-    raw_app_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    raw_user_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    is_super_admin?: boolean | null
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    phone?: string | null
-    phone_confirmed_at?: Date | string | null
-    phone_change?: string | null
-    phone_change_token?: string | null
-    phone_change_sent_at?: Date | string | null
-    confirmed_at?: Date | string | null
-    email_change_token_current?: string | null
-    email_change_confirm_status?: number | null
-    banned_until?: Date | string | null
-    reauthentication_token?: string | null
-    reauthentication_sent_at?: Date | string | null
-    is_sso_user?: boolean
-    deleted_at?: Date | string | null
-    is_anonymous?: boolean
-    identities?: identitiesUncheckedCreateNestedManyWithoutUsersInput
-    mfa_factors?: mfa_factorsUncheckedCreateNestedManyWithoutUsersInput
-    one_time_tokens?: one_time_tokensUncheckedCreateNestedManyWithoutUsersInput
-    sessions?: sessionsUncheckedCreateNestedManyWithoutUsersInput
-    employee?: employeeUncheckedCreateNestedOneWithoutUserInput
-    timesheets?: timesheetUncheckedCreateNestedManyWithoutUserInput
-    dailySummaries?: daily_summaryUncheckedCreateNestedManyWithoutUserInput
+  export type timesheetUpdateWithWhereUniqueWithoutUserInput = {
+    where: timesheetWhereUniqueInput
+    data: XOR<timesheetUpdateWithoutUserInput, timesheetUncheckedUpdateWithoutUserInput>
   }
 
-  export type UserCreateOrConnectWithoutAdminInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutAdminInput, UserUncheckedCreateWithoutAdminInput>
+  export type timesheetUpdateManyWithWhereWithoutUserInput = {
+    where: timesheetScalarWhereInput
+    data: XOR<timesheetUpdateManyMutationInput, timesheetUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type UserUpsertWithoutAdminInput = {
-    update: XOR<UserUpdateWithoutAdminInput, UserUncheckedUpdateWithoutAdminInput>
-    create: XOR<UserCreateWithoutAdminInput, UserUncheckedCreateWithoutAdminInput>
-    where?: UserWhereInput
+  export type timesheetScalarWhereInput = {
+    AND?: timesheetScalarWhereInput | timesheetScalarWhereInput[]
+    OR?: timesheetScalarWhereInput[]
+    NOT?: timesheetScalarWhereInput | timesheetScalarWhereInput[]
+    id?: IntFilter<"timesheet"> | number
+    userId?: IntFilter<"timesheet"> | number
+    time?: DateTimeFilter<"timesheet"> | Date | string
+    type?: EnumTimesheetTypeFilter<"timesheet"> | $Enums.TimesheetType
+    createdAt?: DateTimeFilter<"timesheet"> | Date | string
+    updatedAt?: DateTimeFilter<"timesheet"> | Date | string
   }
 
-  export type UserUpdateToOneWithWhereWithoutAdminInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutAdminInput, UserUncheckedUpdateWithoutAdminInput>
+  export type daily_summaryUpsertWithWhereUniqueWithoutUserInput = {
+    where: daily_summaryWhereUniqueInput
+    update: XOR<daily_summaryUpdateWithoutUserInput, daily_summaryUncheckedUpdateWithoutUserInput>
+    create: XOR<daily_summaryCreateWithoutUserInput, daily_summaryUncheckedCreateWithoutUserInput>
   }
 
-  export type UserUpdateWithoutAdminInput = {
-    instance_id?: NullableStringFieldUpdateOperationsInput | string | null
-    id?: StringFieldUpdateOperationsInput | string
-    aud?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    encrypted_password?: NullableStringFieldUpdateOperationsInput | string | null
-    email_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    invited_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    confirmation_token?: NullableStringFieldUpdateOperationsInput | string | null
-    confirmation_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    recovery_token?: NullableStringFieldUpdateOperationsInput | string | null
-    recovery_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    email_change_token_new?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    last_sign_in_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    raw_app_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    raw_user_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    is_super_admin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    phone_change?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_change_token?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_change_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    email_change_token_current?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change_confirm_status?: NullableIntFieldUpdateOperationsInput | number | null
-    banned_until?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    reauthentication_token?: NullableStringFieldUpdateOperationsInput | string | null
-    reauthentication_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    is_sso_user?: BoolFieldUpdateOperationsInput | boolean
-    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    is_anonymous?: BoolFieldUpdateOperationsInput | boolean
-    identities?: identitiesUpdateManyWithoutUsersNestedInput
-    mfa_factors?: mfa_factorsUpdateManyWithoutUsersNestedInput
-    one_time_tokens?: one_time_tokensUpdateManyWithoutUsersNestedInput
-    sessions?: sessionsUpdateManyWithoutUsersNestedInput
-    employee?: employeeUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUpdateManyWithoutUserNestedInput
+  export type daily_summaryUpdateWithWhereUniqueWithoutUserInput = {
+    where: daily_summaryWhereUniqueInput
+    data: XOR<daily_summaryUpdateWithoutUserInput, daily_summaryUncheckedUpdateWithoutUserInput>
   }
 
-  export type UserUncheckedUpdateWithoutAdminInput = {
-    instance_id?: NullableStringFieldUpdateOperationsInput | string | null
-    id?: StringFieldUpdateOperationsInput | string
-    aud?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    encrypted_password?: NullableStringFieldUpdateOperationsInput | string | null
-    email_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    invited_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    confirmation_token?: NullableStringFieldUpdateOperationsInput | string | null
-    confirmation_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    recovery_token?: NullableStringFieldUpdateOperationsInput | string | null
-    recovery_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    email_change_token_new?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    last_sign_in_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    raw_app_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    raw_user_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    is_super_admin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    phone_change?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_change_token?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_change_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    email_change_token_current?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change_confirm_status?: NullableIntFieldUpdateOperationsInput | number | null
-    banned_until?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    reauthentication_token?: NullableStringFieldUpdateOperationsInput | string | null
-    reauthentication_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    is_sso_user?: BoolFieldUpdateOperationsInput | boolean
-    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    is_anonymous?: BoolFieldUpdateOperationsInput | boolean
-    identities?: identitiesUncheckedUpdateManyWithoutUsersNestedInput
-    mfa_factors?: mfa_factorsUncheckedUpdateManyWithoutUsersNestedInput
-    one_time_tokens?: one_time_tokensUncheckedUpdateManyWithoutUsersNestedInput
-    sessions?: sessionsUncheckedUpdateManyWithoutUsersNestedInput
-    employee?: employeeUncheckedUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUncheckedUpdateManyWithoutUserNestedInput
-    dailySummaries?: daily_summaryUncheckedUpdateManyWithoutUserNestedInput
+  export type daily_summaryUpdateManyWithWhereWithoutUserInput = {
+    where: daily_summaryScalarWhereInput
+    data: XOR<daily_summaryUpdateManyMutationInput, daily_summaryUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type UserCreateWithoutTimesheetsInput = {
-    instance_id?: string | null
-    id: string
-    aud?: string | null
-    role?: string | null
-    email?: string | null
-    encrypted_password?: string | null
-    email_confirmed_at?: Date | string | null
-    invited_at?: Date | string | null
-    confirmation_token?: string | null
-    confirmation_sent_at?: Date | string | null
-    recovery_token?: string | null
-    recovery_sent_at?: Date | string | null
-    email_change_token_new?: string | null
-    email_change?: string | null
-    email_change_sent_at?: Date | string | null
-    last_sign_in_at?: Date | string | null
-    raw_app_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    raw_user_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    is_super_admin?: boolean | null
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    phone?: string | null
-    phone_confirmed_at?: Date | string | null
-    phone_change?: string | null
-    phone_change_token?: string | null
-    phone_change_sent_at?: Date | string | null
-    confirmed_at?: Date | string | null
-    email_change_token_current?: string | null
-    email_change_confirm_status?: number | null
-    banned_until?: Date | string | null
-    reauthentication_token?: string | null
-    reauthentication_sent_at?: Date | string | null
-    is_sso_user?: boolean
-    deleted_at?: Date | string | null
-    is_anonymous?: boolean
-    identities?: identitiesCreateNestedManyWithoutUsersInput
-    mfa_factors?: mfa_factorsCreateNestedManyWithoutUsersInput
-    one_time_tokens?: one_time_tokensCreateNestedManyWithoutUsersInput
-    sessions?: sessionsCreateNestedManyWithoutUsersInput
-    employee?: employeeCreateNestedOneWithoutUserInput
-    admin?: adminCreateNestedOneWithoutUserInput
-    dailySummaries?: daily_summaryCreateNestedManyWithoutUserInput
+  export type daily_summaryScalarWhereInput = {
+    AND?: daily_summaryScalarWhereInput | daily_summaryScalarWhereInput[]
+    OR?: daily_summaryScalarWhereInput[]
+    NOT?: daily_summaryScalarWhereInput | daily_summaryScalarWhereInput[]
+    id?: IntFilter<"daily_summary"> | number
+    userId?: IntFilter<"daily_summary"> | number
+    date?: DateTimeFilter<"daily_summary"> | Date | string
+    totalTime?: IntFilter<"daily_summary"> | number
+    createdAt?: DateTimeFilter<"daily_summary"> | Date | string
+    updatedAt?: DateTimeFilter<"daily_summary"> | Date | string
   }
 
-  export type UserUncheckedCreateWithoutTimesheetsInput = {
-    instance_id?: string | null
-    id: string
-    aud?: string | null
-    role?: string | null
-    email?: string | null
-    encrypted_password?: string | null
-    email_confirmed_at?: Date | string | null
-    invited_at?: Date | string | null
-    confirmation_token?: string | null
-    confirmation_sent_at?: Date | string | null
-    recovery_token?: string | null
-    recovery_sent_at?: Date | string | null
-    email_change_token_new?: string | null
-    email_change?: string | null
-    email_change_sent_at?: Date | string | null
-    last_sign_in_at?: Date | string | null
-    raw_app_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    raw_user_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    is_super_admin?: boolean | null
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    phone?: string | null
-    phone_confirmed_at?: Date | string | null
-    phone_change?: string | null
-    phone_change_token?: string | null
-    phone_change_sent_at?: Date | string | null
-    confirmed_at?: Date | string | null
-    email_change_token_current?: string | null
-    email_change_confirm_status?: number | null
-    banned_until?: Date | string | null
-    reauthentication_token?: string | null
-    reauthentication_sent_at?: Date | string | null
-    is_sso_user?: boolean
-    deleted_at?: Date | string | null
-    is_anonymous?: boolean
-    identities?: identitiesUncheckedCreateNestedManyWithoutUsersInput
-    mfa_factors?: mfa_factorsUncheckedCreateNestedManyWithoutUsersInput
-    one_time_tokens?: one_time_tokensUncheckedCreateNestedManyWithoutUsersInput
-    sessions?: sessionsUncheckedCreateNestedManyWithoutUsersInput
-    employee?: employeeUncheckedCreateNestedOneWithoutUserInput
-    admin?: adminUncheckedCreateNestedOneWithoutUserInput
-    dailySummaries?: daily_summaryUncheckedCreateNestedManyWithoutUserInput
+  export type app_userCreateWithoutTimesheetInput = {
+    userNo: string
+    firstName: string
+    lastName: string
+    role?: $Enums.UserRole
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutUserInput
+    daily_summary?: daily_summaryCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutTimesheetsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutTimesheetsInput, UserUncheckedCreateWithoutTimesheetsInput>
+  export type app_userUncheckedCreateWithoutTimesheetInput = {
+    id?: number
+    userId: string
+    userNo: string
+    firstName: string
+    lastName: string
+    role?: $Enums.UserRole
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    daily_summary?: daily_summaryUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserUpsertWithoutTimesheetsInput = {
-    update: XOR<UserUpdateWithoutTimesheetsInput, UserUncheckedUpdateWithoutTimesheetsInput>
-    create: XOR<UserCreateWithoutTimesheetsInput, UserUncheckedCreateWithoutTimesheetsInput>
-    where?: UserWhereInput
+  export type app_userCreateOrConnectWithoutTimesheetInput = {
+    where: app_userWhereUniqueInput
+    create: XOR<app_userCreateWithoutTimesheetInput, app_userUncheckedCreateWithoutTimesheetInput>
   }
 
-  export type UserUpdateToOneWithWhereWithoutTimesheetsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutTimesheetsInput, UserUncheckedUpdateWithoutTimesheetsInput>
+  export type app_userUpsertWithoutTimesheetInput = {
+    update: XOR<app_userUpdateWithoutTimesheetInput, app_userUncheckedUpdateWithoutTimesheetInput>
+    create: XOR<app_userCreateWithoutTimesheetInput, app_userUncheckedCreateWithoutTimesheetInput>
+    where?: app_userWhereInput
   }
 
-  export type UserUpdateWithoutTimesheetsInput = {
-    instance_id?: NullableStringFieldUpdateOperationsInput | string | null
-    id?: StringFieldUpdateOperationsInput | string
-    aud?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    encrypted_password?: NullableStringFieldUpdateOperationsInput | string | null
-    email_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    invited_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    confirmation_token?: NullableStringFieldUpdateOperationsInput | string | null
-    confirmation_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    recovery_token?: NullableStringFieldUpdateOperationsInput | string | null
-    recovery_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    email_change_token_new?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    last_sign_in_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    raw_app_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    raw_user_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    is_super_admin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    phone_change?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_change_token?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_change_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    email_change_token_current?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change_confirm_status?: NullableIntFieldUpdateOperationsInput | number | null
-    banned_until?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    reauthentication_token?: NullableStringFieldUpdateOperationsInput | string | null
-    reauthentication_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    is_sso_user?: BoolFieldUpdateOperationsInput | boolean
-    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    is_anonymous?: BoolFieldUpdateOperationsInput | boolean
-    identities?: identitiesUpdateManyWithoutUsersNestedInput
-    mfa_factors?: mfa_factorsUpdateManyWithoutUsersNestedInput
-    one_time_tokens?: one_time_tokensUpdateManyWithoutUsersNestedInput
-    sessions?: sessionsUpdateManyWithoutUsersNestedInput
-    employee?: employeeUpdateOneWithoutUserNestedInput
-    admin?: adminUpdateOneWithoutUserNestedInput
-    dailySummaries?: daily_summaryUpdateManyWithoutUserNestedInput
+  export type app_userUpdateToOneWithWhereWithoutTimesheetInput = {
+    where?: app_userWhereInput
+    data: XOR<app_userUpdateWithoutTimesheetInput, app_userUncheckedUpdateWithoutTimesheetInput>
   }
 
-  export type UserUncheckedUpdateWithoutTimesheetsInput = {
-    instance_id?: NullableStringFieldUpdateOperationsInput | string | null
-    id?: StringFieldUpdateOperationsInput | string
-    aud?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    encrypted_password?: NullableStringFieldUpdateOperationsInput | string | null
-    email_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    invited_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    confirmation_token?: NullableStringFieldUpdateOperationsInput | string | null
-    confirmation_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    recovery_token?: NullableStringFieldUpdateOperationsInput | string | null
-    recovery_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    email_change_token_new?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    last_sign_in_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    raw_app_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    raw_user_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    is_super_admin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    phone_change?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_change_token?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_change_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    email_change_token_current?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change_confirm_status?: NullableIntFieldUpdateOperationsInput | number | null
-    banned_until?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    reauthentication_token?: NullableStringFieldUpdateOperationsInput | string | null
-    reauthentication_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    is_sso_user?: BoolFieldUpdateOperationsInput | boolean
-    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    is_anonymous?: BoolFieldUpdateOperationsInput | boolean
-    identities?: identitiesUncheckedUpdateManyWithoutUsersNestedInput
-    mfa_factors?: mfa_factorsUncheckedUpdateManyWithoutUsersNestedInput
-    one_time_tokens?: one_time_tokensUncheckedUpdateManyWithoutUsersNestedInput
-    sessions?: sessionsUncheckedUpdateManyWithoutUsersNestedInput
-    employee?: employeeUncheckedUpdateOneWithoutUserNestedInput
-    admin?: adminUncheckedUpdateOneWithoutUserNestedInput
-    dailySummaries?: daily_summaryUncheckedUpdateManyWithoutUserNestedInput
+  export type app_userUpdateWithoutTimesheetInput = {
+    userNo?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutUserNestedInput
+    daily_summary?: daily_summaryUpdateManyWithoutUserNestedInput
   }
 
-  export type UserCreateWithoutDailySummariesInput = {
-    instance_id?: string | null
-    id: string
-    aud?: string | null
-    role?: string | null
-    email?: string | null
-    encrypted_password?: string | null
-    email_confirmed_at?: Date | string | null
-    invited_at?: Date | string | null
-    confirmation_token?: string | null
-    confirmation_sent_at?: Date | string | null
-    recovery_token?: string | null
-    recovery_sent_at?: Date | string | null
-    email_change_token_new?: string | null
-    email_change?: string | null
-    email_change_sent_at?: Date | string | null
-    last_sign_in_at?: Date | string | null
-    raw_app_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    raw_user_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    is_super_admin?: boolean | null
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    phone?: string | null
-    phone_confirmed_at?: Date | string | null
-    phone_change?: string | null
-    phone_change_token?: string | null
-    phone_change_sent_at?: Date | string | null
-    confirmed_at?: Date | string | null
-    email_change_token_current?: string | null
-    email_change_confirm_status?: number | null
-    banned_until?: Date | string | null
-    reauthentication_token?: string | null
-    reauthentication_sent_at?: Date | string | null
-    is_sso_user?: boolean
-    deleted_at?: Date | string | null
-    is_anonymous?: boolean
-    identities?: identitiesCreateNestedManyWithoutUsersInput
-    mfa_factors?: mfa_factorsCreateNestedManyWithoutUsersInput
-    one_time_tokens?: one_time_tokensCreateNestedManyWithoutUsersInput
-    sessions?: sessionsCreateNestedManyWithoutUsersInput
-    employee?: employeeCreateNestedOneWithoutUserInput
-    admin?: adminCreateNestedOneWithoutUserInput
-    timesheets?: timesheetCreateNestedManyWithoutUserInput
+  export type app_userUncheckedUpdateWithoutTimesheetInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    userNo?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    daily_summary?: daily_summaryUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedCreateWithoutDailySummariesInput = {
-    instance_id?: string | null
-    id: string
-    aud?: string | null
-    role?: string | null
-    email?: string | null
-    encrypted_password?: string | null
-    email_confirmed_at?: Date | string | null
-    invited_at?: Date | string | null
-    confirmation_token?: string | null
-    confirmation_sent_at?: Date | string | null
-    recovery_token?: string | null
-    recovery_sent_at?: Date | string | null
-    email_change_token_new?: string | null
-    email_change?: string | null
-    email_change_sent_at?: Date | string | null
-    last_sign_in_at?: Date | string | null
-    raw_app_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    raw_user_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    is_super_admin?: boolean | null
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    phone?: string | null
-    phone_confirmed_at?: Date | string | null
-    phone_change?: string | null
-    phone_change_token?: string | null
-    phone_change_sent_at?: Date | string | null
-    confirmed_at?: Date | string | null
-    email_change_token_current?: string | null
-    email_change_confirm_status?: number | null
-    banned_until?: Date | string | null
-    reauthentication_token?: string | null
-    reauthentication_sent_at?: Date | string | null
-    is_sso_user?: boolean
-    deleted_at?: Date | string | null
-    is_anonymous?: boolean
-    identities?: identitiesUncheckedCreateNestedManyWithoutUsersInput
-    mfa_factors?: mfa_factorsUncheckedCreateNestedManyWithoutUsersInput
-    one_time_tokens?: one_time_tokensUncheckedCreateNestedManyWithoutUsersInput
-    sessions?: sessionsUncheckedCreateNestedManyWithoutUsersInput
-    employee?: employeeUncheckedCreateNestedOneWithoutUserInput
-    admin?: adminUncheckedCreateNestedOneWithoutUserInput
-    timesheets?: timesheetUncheckedCreateNestedManyWithoutUserInput
+  export type app_userCreateWithoutDaily_summaryInput = {
+    userNo: string
+    firstName: string
+    lastName: string
+    role?: $Enums.UserRole
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutUserInput
+    timesheet?: timesheetCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutDailySummariesInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutDailySummariesInput, UserUncheckedCreateWithoutDailySummariesInput>
+  export type app_userUncheckedCreateWithoutDaily_summaryInput = {
+    id?: number
+    userId: string
+    userNo: string
+    firstName: string
+    lastName: string
+    role?: $Enums.UserRole
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    timesheet?: timesheetUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserUpsertWithoutDailySummariesInput = {
-    update: XOR<UserUpdateWithoutDailySummariesInput, UserUncheckedUpdateWithoutDailySummariesInput>
-    create: XOR<UserCreateWithoutDailySummariesInput, UserUncheckedCreateWithoutDailySummariesInput>
-    where?: UserWhereInput
+  export type app_userCreateOrConnectWithoutDaily_summaryInput = {
+    where: app_userWhereUniqueInput
+    create: XOR<app_userCreateWithoutDaily_summaryInput, app_userUncheckedCreateWithoutDaily_summaryInput>
   }
 
-  export type UserUpdateToOneWithWhereWithoutDailySummariesInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutDailySummariesInput, UserUncheckedUpdateWithoutDailySummariesInput>
+  export type app_userUpsertWithoutDaily_summaryInput = {
+    update: XOR<app_userUpdateWithoutDaily_summaryInput, app_userUncheckedUpdateWithoutDaily_summaryInput>
+    create: XOR<app_userCreateWithoutDaily_summaryInput, app_userUncheckedCreateWithoutDaily_summaryInput>
+    where?: app_userWhereInput
   }
 
-  export type UserUpdateWithoutDailySummariesInput = {
-    instance_id?: NullableStringFieldUpdateOperationsInput | string | null
-    id?: StringFieldUpdateOperationsInput | string
-    aud?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    encrypted_password?: NullableStringFieldUpdateOperationsInput | string | null
-    email_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    invited_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    confirmation_token?: NullableStringFieldUpdateOperationsInput | string | null
-    confirmation_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    recovery_token?: NullableStringFieldUpdateOperationsInput | string | null
-    recovery_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    email_change_token_new?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    last_sign_in_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    raw_app_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    raw_user_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    is_super_admin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    phone_change?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_change_token?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_change_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    email_change_token_current?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change_confirm_status?: NullableIntFieldUpdateOperationsInput | number | null
-    banned_until?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    reauthentication_token?: NullableStringFieldUpdateOperationsInput | string | null
-    reauthentication_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    is_sso_user?: BoolFieldUpdateOperationsInput | boolean
-    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    is_anonymous?: BoolFieldUpdateOperationsInput | boolean
-    identities?: identitiesUpdateManyWithoutUsersNestedInput
-    mfa_factors?: mfa_factorsUpdateManyWithoutUsersNestedInput
-    one_time_tokens?: one_time_tokensUpdateManyWithoutUsersNestedInput
-    sessions?: sessionsUpdateManyWithoutUsersNestedInput
-    employee?: employeeUpdateOneWithoutUserNestedInput
-    admin?: adminUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUpdateManyWithoutUserNestedInput
+  export type app_userUpdateToOneWithWhereWithoutDaily_summaryInput = {
+    where?: app_userWhereInput
+    data: XOR<app_userUpdateWithoutDaily_summaryInput, app_userUncheckedUpdateWithoutDaily_summaryInput>
   }
 
-  export type UserUncheckedUpdateWithoutDailySummariesInput = {
-    instance_id?: NullableStringFieldUpdateOperationsInput | string | null
-    id?: StringFieldUpdateOperationsInput | string
-    aud?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    encrypted_password?: NullableStringFieldUpdateOperationsInput | string | null
-    email_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    invited_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    confirmation_token?: NullableStringFieldUpdateOperationsInput | string | null
-    confirmation_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    recovery_token?: NullableStringFieldUpdateOperationsInput | string | null
-    recovery_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    email_change_token_new?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    last_sign_in_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    raw_app_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    raw_user_meta_data?: NullableJsonNullValueInput | InputJsonValue
-    is_super_admin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    phone_change?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_change_token?: NullableStringFieldUpdateOperationsInput | string | null
-    phone_change_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    email_change_token_current?: NullableStringFieldUpdateOperationsInput | string | null
-    email_change_confirm_status?: NullableIntFieldUpdateOperationsInput | number | null
-    banned_until?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    reauthentication_token?: NullableStringFieldUpdateOperationsInput | string | null
-    reauthentication_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    is_sso_user?: BoolFieldUpdateOperationsInput | boolean
-    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    is_anonymous?: BoolFieldUpdateOperationsInput | boolean
-    identities?: identitiesUncheckedUpdateManyWithoutUsersNestedInput
-    mfa_factors?: mfa_factorsUncheckedUpdateManyWithoutUsersNestedInput
-    one_time_tokens?: one_time_tokensUncheckedUpdateManyWithoutUsersNestedInput
-    sessions?: sessionsUncheckedUpdateManyWithoutUsersNestedInput
-    employee?: employeeUncheckedUpdateOneWithoutUserNestedInput
-    admin?: adminUncheckedUpdateOneWithoutUserNestedInput
-    timesheets?: timesheetUncheckedUpdateManyWithoutUserNestedInput
+  export type app_userUpdateWithoutDaily_summaryInput = {
+    userNo?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutUserNestedInput
+    timesheet?: timesheetUpdateManyWithoutUserNestedInput
+  }
+
+  export type app_userUncheckedUpdateWithoutDaily_summaryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    userNo?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    timesheet?: timesheetUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type identitiesCreateManyUsersInput = {
@@ -34863,22 +32924,6 @@ export namespace Prisma {
     user_agent?: string | null
     ip?: string | null
     tag?: string | null
-  }
-
-  export type timesheetCreateManyUserInput = {
-    id?: number
-    time: Date | string
-    type: $Enums.TimesheetType
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type daily_summaryCreateManyUserInput = {
-    id?: number
-    date: Date | string
-    totalTime: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type identitiesUpdateWithoutUsersInput = {
@@ -35026,52 +33071,6 @@ export namespace Prisma {
     user_agent?: NullableStringFieldUpdateOperationsInput | string | null
     ip?: NullableStringFieldUpdateOperationsInput | string | null
     tag?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type timesheetUpdateWithoutUserInput = {
-    time?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumTimesheetTypeFieldUpdateOperationsInput | $Enums.TimesheetType
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type timesheetUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    time?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumTimesheetTypeFieldUpdateOperationsInput | $Enums.TimesheetType
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type timesheetUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    time?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumTimesheetTypeFieldUpdateOperationsInput | $Enums.TimesheetType
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type daily_summaryUpdateWithoutUserInput = {
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    totalTime?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type daily_summaryUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    totalTime?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type daily_summaryUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    totalTime?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type saml_relay_statesCreateManyFlow_stateInput = {
@@ -35332,6 +33331,68 @@ export namespace Prisma {
     domain?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type timesheetCreateManyUserInput = {
+    id?: number
+    time: Date | string
+    type: $Enums.TimesheetType
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type daily_summaryCreateManyUserInput = {
+    id?: number
+    date: Date | string
+    totalTime: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type timesheetUpdateWithoutUserInput = {
+    time?: DateTimeFieldUpdateOperationsInput | Date | string
+    type?: EnumTimesheetTypeFieldUpdateOperationsInput | $Enums.TimesheetType
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type timesheetUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    time?: DateTimeFieldUpdateOperationsInput | Date | string
+    type?: EnumTimesheetTypeFieldUpdateOperationsInput | $Enums.TimesheetType
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type timesheetUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    time?: DateTimeFieldUpdateOperationsInput | Date | string
+    type?: EnumTimesheetTypeFieldUpdateOperationsInput | $Enums.TimesheetType
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type daily_summaryUpdateWithoutUserInput = {
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalTime?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type daily_summaryUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalTime?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type daily_summaryUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalTime?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
