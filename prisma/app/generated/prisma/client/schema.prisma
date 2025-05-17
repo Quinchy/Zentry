@@ -338,21 +338,36 @@ enum one_time_token_type {
  */
 
 model app_user {
-  id        Int      @id @default(autoincrement())
-  userId    String   @unique @db.Uuid
-  userNo    String   @unique
-  firstName String   @db.VarChar(50)
-  lastName  String   @db.VarChar(50)
-  role      UserRole @default(ADMIN)
-  status    Status   @default(ACTIVE)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             Int      @id @default(autoincrement())
+  organizationId Int?     @unique
+  userId         String   @unique @db.Uuid
+  userNo         String   @unique
+  firstName      String   @db.VarChar(50)
+  lastName       String   @db.VarChar(50)
+  role           UserRole @default(ADMIN)
+  status         Status   @default(ACTIVE)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
+  organization  organization?   @relation(fields: [organizationId], references: [id])
   user          User            @relation(fields: [userId], references: [id])
   timesheet     timesheet[]
   daily_summary daily_summary[]
 
   @@map("app_user")
+  @@schema("public")
+}
+
+model organization {
+  id             Int      @id @default(autoincrement())
+  organizationNo String   @unique
+  name           String   @db.VarChar(50)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  app_user app_user?
+
+  @@map("organization")
   @@schema("public")
 }
 

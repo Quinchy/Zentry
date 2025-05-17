@@ -22,8 +22,7 @@ import { toast } from "sonner";
 import { routes } from "@/routes";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
-import Logo from "@/public/images/logo.svg";
-import { login } from "@/features/auth/actions/authenticate";
+import { googleLogin, login } from "@/features/auth/actions/authenticate";
 
 export default function LoginForm({ className }: { className?: string }) {
   const router = useRouter();
@@ -53,9 +52,7 @@ export default function LoginForm({ className }: { className?: string }) {
       toast.success(result.success, {
         duration: 2000,
       });
-      setTimeout(() => {
-        router.push(routes.dashboard);
-      }, 1000);
+      router.push(routes.dashboard);
     } catch (error: unknown) {
       toast.error(
         error instanceof Error ? error.message : "An unexpected error occurred",
@@ -65,30 +62,9 @@ export default function LoginForm({ className }: { className?: string }) {
       setLoading(false);
     }
   };
-  const googleLogin = async () => {
-    const res = await fetch("/api/auth/google");
-    const { url, error } = await res.json();
-    if (error) return toast.error(error);
-    window.location.href = url;
-  };
   return (
-    <div className={`flex flex-col items-center justify-center ${className}`}>
-      <Link
-        href={routes.home}
-        className="absolute top-10 left-10 flex items-center gap-2 group"
-      >
-        <Image
-          src={Logo}
-          alt="Logo"
-          width={40}
-          priority
-          className="group-hover:brightness-125 transition-all duration-300 ease-in-out"
-        />
-        <h1 className="font-black text-3xl text-primary group-hover:brightness-125 transition-all duration-300 ease-in-out">
-          Zentry
-        </h1>
-      </Link>
-      <div className="w-full max-w-sm space-y-4">
+    <div className={`${className}`}>
+      <div className="w-full lg:min-w-md space-y-4">
         <div>
           <h1 className="text-3xl font-bold text-primary">Welcome to Zentry</h1>
           <p className="text-sm text-foreground/90">

@@ -13,6 +13,7 @@ export const loginSchema = z.object({
 
 export const registerSchema = z
   .object({
+    organizationName: z.string().min(1, "The organization name is required"),
     firstName: z.string().min(1, "The first name is required"),
     lastName: z.string().min(1, "The last name is required"),
     email: z
@@ -29,3 +30,7 @@ export const registerSchema = z
     message: "Passwords do not match",
     path: ["confirmPassword"],
   });
+
+export const addOrgSchema = z.object({
+  organizationName: z.string().min(1, "The organization name is required"),
+});

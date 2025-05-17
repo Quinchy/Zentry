@@ -14,15 +14,15 @@ import {
   FormMessage,
 } from "@/components/shadcn/ui/form";
 import { Button } from "@/components/shadcn/ui/button";
-import Logo from "@/public/images/logo.svg";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema } from "@/features/auth/schema/auth";
 import { routes } from "@/routes";
-import { Loader2 } from "lucide-react"
+import { Loader2 } from "lucide-react";
 import googleLogo from "@/public/images/google-logo.svg";
 import { z } from "zod";
+import AppLogo from "@/components/ui/app-logo";
 
 export default function RegisterForm({ className }: { className?: string }) {
   const router = useRouter();
@@ -31,6 +31,7 @@ export default function RegisterForm({ className }: { className?: string }) {
   const registerForm = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
+      organizationName: "",
       firstName: "",
       lastName: "",
       email: "",
@@ -57,9 +58,7 @@ export default function RegisterForm({ className }: { className?: string }) {
       toast.success(result.success, {
         duration: 2000,
       });
-      setTimeout(() => {
-        router.push(routes.dashboard);
-      }, 1000);
+      router.push(routes.dashboard);
     } catch (error: unknown) {
       toast.error(
         error instanceof Error ? error.message : "An unexpected error occurred",
@@ -76,22 +75,7 @@ export default function RegisterForm({ className }: { className?: string }) {
     window.location.href = url;
   };
   return (
-    <div className={`flex flex-col items-center justify-center ${className}`}>
-      <Link
-        href={routes.home}
-        className="absolute top-10 left-10 flex items-center gap-2 group"
-      >
-        <Image
-          src={Logo}
-          alt="Logo"
-          width={40}
-          priority
-          className="group-hover:brightness-125 transition-all duration-300 ease-in-out"
-        />
-        <h1 className="font-black text-3xl text-primary group-hover:brightness-125 transition-all duration-300 ease-in-out">
-          Zentry
-        </h1>
-      </Link>
+    <div className={`${className}`}>
       <div className="w-full max-w-lg space-y-4">
         <div>
           <h1 className="text-3xl font-bold text-primary">
@@ -106,6 +90,23 @@ export default function RegisterForm({ className }: { className?: string }) {
             onSubmit={registerForm.handleSubmit(onSubmit)}
             className="space-y-4"
           >
+            <FormField
+              control={registerForm.control}
+              name="organizationName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel required>Organization Name</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Please enter your organization name"
+                      disabled={loading}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <div className="grid grid-cols-2 gap-2 items-start">
               <FormField
                 control={registerForm.control}

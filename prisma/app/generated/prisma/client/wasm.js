@@ -314,12 +314,21 @@ exports.Prisma.Sso_providersScalarFieldEnum = {
 
 exports.Prisma.App_userScalarFieldEnum = {
   id: 'id',
+  organizationId: 'organizationId',
   userId: 'userId',
   userNo: 'userNo',
   firstName: 'firstName',
   lastName: 'lastName',
   role: 'role',
   status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.OrganizationScalarFieldEnum = {
+  id: 'id',
+  organizationNo: 'organizationNo',
+  name: 'name',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -436,6 +445,7 @@ exports.Prisma.ModelName = {
   sso_domains: 'sso_domains',
   sso_providers: 'sso_providers',
   app_user: 'app_user',
+  organization: 'organization',
   timesheet: 'timesheet',
   daily_summary: 'daily_summary'
 };
